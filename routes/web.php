@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/register', [RegisterController::class, ]);
+
 
 Route::get('/login', [LoginController::class, 'index']);
 
@@ -31,4 +31,4 @@ Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture'])->nam
 
 Route::post('/addFurniture', [FurnitureController::class, 'addFurniture'])->name('add');
 
-Route::get('/login', [LoginController::class, 'index']);
+

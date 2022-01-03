@@ -3,7 +3,7 @@
 @section('content')
 
 
-<form action="/updateFurniture" method="POST" enctype="multipart/form-data">
+<form action="/addFurniture" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="row mb-3">
         <label for="name">Name</label>

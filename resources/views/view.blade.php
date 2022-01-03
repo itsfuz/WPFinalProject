@@ -7,15 +7,13 @@
 
     {{-- view each furniture --}}
 
-    <div class="view-card" style="padding:50px; width:500px; border:1px">
+    <div class="view-card" style="padding:50px; width:500px">
 
-    <div class="row">
-        <div class="column">
 
-        </div>
-    </div>
     @foreach ($furnitures as $f)
-        <img src="" alt="">
+    <div class="card" style="border-style:solid; align-items:center; display:flex">
+
+       <div style="padding: 20px">
         <p>Name: {{$f->name}}</p>
         <p>Price: Rp. {{$f->price}}</p>
         <p>Color: {{$f->color}}</p>
@@ -35,10 +33,11 @@
                     <button type="submit">Delete</button>
                 </form>
             </div>
-
         </div>
+       </div>
 
-
+    </div>
+    <br>
     @endforeach
 
     </div>
