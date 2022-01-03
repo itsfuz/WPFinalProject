@@ -2,13 +2,19 @@
 
 @section('content')
 <body>
-    <h1>this should be where the furniture is</h1>
+    <br>
+    <h1 style="text-align:center">View Furniture</h1>
 
     {{-- view each furniture --}}
 
-    @foreach ($furnitures as $f)
+    <div class="view-card" style="padding:50px; width:500px; border:1px">
 
-    <div class="card">
+    <div class="row">
+        <div class="column">
+
+        </div>
+    </div>
+    @foreach ($furnitures as $f)
         <img src="" alt="">
         <p>Name: {{$f->name}}</p>
         <p>Price: Rp. {{$f->price}}</p>
@@ -17,9 +23,21 @@
         <p>Image:  </p>
         <img src=" {{Storage::url($f->images)}}" alt="">
 
-        <form action="">
-            <button type="submit">Update</button>
-        </form>
+        <div class="row">
+            <div class="column">
+                <form action="">
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+
+            <div class="column">
+                <form action="">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+
+        </div>
+
 
     @endforeach
 
