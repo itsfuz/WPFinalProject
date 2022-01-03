@@ -8,5 +8,14 @@ class RegisterController extends Controller
 {
     //
 
+    public function index(){
 
+        return view('register');
+    }
+
+    public function store(){
+
+        return request()->all();
+
+    }
 }

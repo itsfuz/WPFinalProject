@@ -30,28 +30,15 @@ footer {
     clear: both;
   }
 
-
-.form-signin {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: auto;
-}
-
-.form-signin .checkbox {
+.forms .checkbox {
   font-weight: 400;
 }
 
-.form-signin .form-floating:focus-within {
+.forms .form-floating:focus-within {
   z-index: 2;
 }
 
-.form-signin input[type="email"] {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+.forms input {
+  border-radius: 25deg;
 }
 
-.form-signin input[type="password"] {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
