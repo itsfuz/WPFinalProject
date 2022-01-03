@@ -11,17 +11,29 @@
         <form action="/register" method="POST">
 
             @csrf
-
+            <div class="row mb-3">
             <label for="email">Email </label>
-            <input type="email" name="email" id="email" placeholder="Email">
+                <div class="col-md-6">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+            </div>
 
             <br>
-            <label for="password">Password </label>
-            <input type="password" name="password" id="password" placeholder="Password">
+            <div class="row mb-3">
+                <label for="password">Password </label>
+                <div class="col-md-6">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+            </div>
 
             <br>
-            <label for="conf-password">Confirm Passowrd </label>
-            <input type="conf-password" name="conf-password" id="conf-password" placeholder="Confirm Password">
+            <div class="row mb-3">
+                <label for="conf-password">Confirm Passowrd </label>
+                <div class="col-md-6">
+                    <input type="conf-password" name="conf-password" id="conf-password" placeholder="Confirm Password">
+
+                </div>
+            </div>
 
 
             <br>
