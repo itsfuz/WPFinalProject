@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FurnitureController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,12 @@ Route::get('/register', function(){
     return view('register');
 });
 
+Route::get('/register', [RegisterController::class, 'create']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture'])->name('view');
 
 Route::post('/addFurniture', [FurnitureController::class, 'addFurniture'])->name('addFurniture');
 
-Route::get('login', [LoginController::class, 'login']);
+Route::get('/login', [LoginController::class, 'index']);
