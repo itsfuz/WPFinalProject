@@ -16,8 +16,6 @@
        <div style="padding: 20px">
         <p>Name: {{$f->name}}</p>
         <p>Price: Rp. {{$f->price}}</p>
-        <p>Color: {{$f->color}}</p>
-        <p>Type: {{$f->type}}</p>
         <p>Image:  </p>
         <img src=" {{Storage::url($f->images)}}" alt="">
 

@@ -1,9 +1,9 @@
 @extends('layout.master')
 
-<link rel="stylesheet" href="style.css">
 
-@section('container')
+@section('content')
+<h1>Welcome, (Blank)</h1><br>
+<h1>to JH Furniture</h1>
 
 
-
-</div>
+@endsection
