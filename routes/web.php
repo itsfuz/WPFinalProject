@@ -22,8 +22,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
+<<<<<<< Updated upstream
 >>>>>>> 35ab9facae3b8f2540c8c04905dcd8f67ff9d6d9
 Route::get('/login', [LoginController::class, 'index']);
+=======
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+>>>>>>> Stashed changes
 
 Route::get('/register', [RegisterController::class, 'index']);
 
