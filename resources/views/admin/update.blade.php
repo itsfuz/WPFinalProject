@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<h1>Update Furniture</h1>
 <form action="/updateFurniture" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="row mb-3">
