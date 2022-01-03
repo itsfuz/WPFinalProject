@@ -45,7 +45,7 @@ class FurnitureController extends Controller
 
         $furnitures->save();
 
-        return view('add', compact('furnitures', $furnitures));
+        return redirect()->back();
 
     }
 

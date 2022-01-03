@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 35ab9facae3b8f2540c8c04905dcd8f67ff9d6d9
 Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/register', [RegisterController::class, 'index']);
@@ -29,3 +35,7 @@ Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture'])->nam
 
 Route::post('/addFurniture', [FurnitureController::class, 'addFurniture'])->name('add');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 35ab9facae3b8f2540c8c04905dcd8f67ff9d6d9
