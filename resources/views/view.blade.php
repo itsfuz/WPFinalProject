@@ -17,8 +17,9 @@
         <p>Name: {{$f->name}}</p>
         <p>Price: Rp. {{$f->price}}</p>
         <p>Image:  </p>
-        <img src=" {{Storage::url($f->images)}}" alt="">
+        <img src=" {{Storage::url($f->image)}}" alt="">
 
+        {{-- if admin --}}
         <div class="row">
             <div class="column">
                 <form action="">
@@ -32,6 +33,16 @@
                 </form>
             </div>
         </div>
+
+
+          {{-- if user --}}
+          {{-- <div class="row">
+            <div class="column">
+                <form action="">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
+        </div> --}}
        </div>
 
     </div>
