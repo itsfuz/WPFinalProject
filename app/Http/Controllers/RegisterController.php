@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -15,16 +16,23 @@ class RegisterController extends Controller
 
     public function store(Request $request){
 
-        $request->validate([
+        $validatedData = $request->validate([
             //validation masi masalah
-            'fullname' => 'required | max:255 | regex:/[a-zA-Z\s]+/',
-            'email' => 'required', //butuh validate untuk unique
-            'password' => 'min:5 | max:20',
-            'confPassword' => 'same:password | required_with: password',
-            'address' => 'required'
+            'full_name' => 'required|max:255|regex:/[a-zA-Z\s]+/',
+            'email' => 'required|email:dns', //butuh validate untuk unique
+            'password' => 'required|min:5|max:20',
+            'Confirm Password' => 'same:password|required_with:password',
+            'address' => 'required',
+            'gender' => 'required'
         ]);
 
-        dd('berhasil!');
+        $validateData['role'] = 'member';
+        $validatedData['password'] = bcrypt($validatedData['password']);
 
+        User::create($validatedData);
+
+        $request->session()->flash('success', 'Registration Successful');
+
+        return redirect('/login');
     }
 }
