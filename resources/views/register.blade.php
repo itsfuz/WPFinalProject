@@ -15,9 +15,16 @@
             <label for="email">Email </label>
             <input type="email" name="email" id="email" placeholder="Email">
 
-            <label for="email">Password </label>
+            <br>
+            <label for="password">Password </label>
             <input type="password" name="password" id="password" placeholder="Password">
 
+            <br>
+            <label for="conf-password">Confirm Passowrd </label>
+            <input type="conf-password" name="conf-password" id="conf-password" placeholder="Confirm Password">
+
+
+            <br>
             <button>Register</button>
 
         </form>
