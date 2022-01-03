@@ -4,8 +4,6 @@
 
 @section('container')
 
-<div class="loginbox">
-
 
 
 </div>

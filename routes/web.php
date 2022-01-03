@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\FurnitureController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Models\Furniture;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FurnitureController;
 use App\Http\Controllers\LoginController;
@@ -16,10 +20,9 @@ use App\Http\Controllers\LoginController;
 */
 
 
-Route::get('/register', function(){
+Route::get('/register', [RegisterController::class, ]);
 
-    return view('register');
-});
+Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/register', [RegisterController::class, 'create']);
 
