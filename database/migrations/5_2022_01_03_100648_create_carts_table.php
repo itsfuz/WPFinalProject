@@ -13,7 +13,10 @@ class CreateCartsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('carts', function (Blueprint $table) {
+            $table->foreignid('users_id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class CreateCartsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('carts');
     }
 }
