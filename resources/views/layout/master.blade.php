@@ -10,12 +10,12 @@
     <title>JH Furniture</title>
 </head>
 <body>
-    @include('layouts.header')
+    @include('layout.header')
     <div>
         <br>
         @yield('content')
         <br>
     </div>
-    @include('layouts.footer')
+    @include('layout.footer')
 </body>
 </html>
