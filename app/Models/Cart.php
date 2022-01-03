@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
+    protected $table = 'carts';
+
+
+    public function users(){
+
+        return $this->hasOne(User::class);
+    }
 }
