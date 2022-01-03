@@ -14,7 +14,8 @@
         <p>Price: Rp. {{$f->price}}</p>
         <p>Color: {{$f->color}}</p>
         <p>Type: {{$f->type}}</p>
-        <p>Image: {{$f->image}}</p>
+        <p>Image:  </p>
+        <img src=" {{Storage::url($f->images)}}" alt="">
 
         <form action="">
             <button type="submit">Update</button>
@@ -24,7 +25,7 @@
 
     </div>
 
-        ini yang ditunjukin dari lab
+        {{-- ini yang ditunjukin dari lab --}}
         {{-- <tr>
             <td  class="furniture-table">
                 <img src="{{Storage::url($f->image)}}" alt="">
@@ -36,8 +37,6 @@
             <i>{{$errors}}</i>
             <br>
             @endforeach
-
-
         @endif
     </div>
 
