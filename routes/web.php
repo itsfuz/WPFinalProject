@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 

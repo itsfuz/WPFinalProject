@@ -38,7 +38,7 @@ class FurnitureController extends Controller
         $furnitures -> color = $request->color;
         $file = $request->file('image');
         $imageName = time().'.'.$file->getClientOriginalExtension();
-        Storage::putFileAs('public/images',$file,$imageName);
+        Storage::putFileAs('public/storage/images',$file,$imageName);
         $furnitures->image = 'images/'.$imageName;
         $furnitures -> type = $request->type;
 
@@ -58,10 +58,11 @@ class FurnitureController extends Controller
         $furnitures -> color = $request->color;
         $file = $request->file('image');
         $imageName = time().'.'.$file->getClientOriginalExtension();
-        Storage::putFileAs('public/assets',$file,$imageName);
+        Storage::putFileAs('public/storage/images',$file,$imageName);
         $furnitures -> type = $request->type;
 
         Storage::delete('public/'.$furnitures->image);
+        $request->image->move(public_path('images'), $imageName);
         $furnitures->save();
 
         return redirect()->back();

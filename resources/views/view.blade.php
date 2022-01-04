@@ -1,55 +1,61 @@
 @extends('layout.master')
 
 @section('content')
-<body>
+
+<main>
     <br>
     <h1 style="text-align:center">View Furniture</h1>
 
     {{-- view each furniture --}}
 
-    <div class="view-card" style="padding:50px; width:500px">
+    <div class="row" style="padding: 50px; justify-content:center">
 
+            @foreach ($furnitures as $f)
+            <div class="col-5" style="width:300px; height:500px">
+                <div class="card" style="border-style:solid; align-items:center">
 
-    @foreach ($furnitures as $f)
-    <div class="card" style="border-style:solid; align-items:center; display:flex">
+                    <div style="padding: 20px">
+                        <p>Name: {{$f->name}}</p>
+                        <p>Price: Rp. {{$f->price}}</p>
+                        <p>Image:  </p>
+                        <img src=" {{ asset($f->images) }}" alt="">
 
-       <div style="padding: 20px">
-        <p>Name: {{$f->name}}</p>
-        <p>Price: Rp. {{$f->price}}</p>
-        <p>Image:  </p>
-        <img src=" {{Storage::url($f->image)}}" alt="">
+                        {{-- if admin --}}
+                        <div class="row">
+                            <div class="column">
+                                <form action="">
+                                    <button type="submit">Update</button>
+                                </form>
+                            </div>
 
-        {{-- if admin --}}
-        <div class="row">
-            <div class="column">
-                <form action="">
-                    <button type="submit">Update</button>
-                </form>
+                            <div class="column">
+                                <form action="">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="column">
-                <form action="">
-                    <button type="submit">Delete</button>
-                </form>
-            </div>
-        </div>
 
 
-          {{-- if user --}}
-          {{-- <div class="row">
-            <div class="column">
-                <form action="">
-                    <button type="submit">Add to Cart</button>
-                </form>
-            </div>
-        </div> --}}
-       </div>
 
+                    {{-- if user --}}
+                    {{-- <div class="row">
+                        <div class="column">
+                            <form action="">
+                                <button type="submit">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div> --}}
+
+
+        <br>
+        @endforeach
     </div>
-    <br>
-    @endforeach
 
-    </div>
+
 
         {{-- ini yang ditunjukin dari lab --}}
         {{-- <tr>
@@ -65,8 +71,9 @@
             @endforeach
         @endif
     </div>
+</main>
 
-</body>
+
 
 @endsection
 
