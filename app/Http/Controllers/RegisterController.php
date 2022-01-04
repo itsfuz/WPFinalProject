@@ -25,13 +25,21 @@ class RegisterController extends Controller
             'gender' => 'required'
         ]);
 
-        $validateData['role'] = 'member';
+        // $validateData['role'] = 'member';
         $validatedData['password'] = bcrypt($validatedData['password']);
 
-        User::create($validatedData);
+        $user = new User();
 
-        $request->session()->flash('success', 'Registration Successful');
+        $user->full_name = $validatedData['full_name'];
+        $user->email = $validatedData['email'];
+        $user->password = $validatedData['password'];
+        $user->address = $validatedData['address'];
+        $user->gender = $validatedData['gender'];
+        $user->role = 'member';
+
+        $user->save();
 
         return redirect('/login');
+
     }
 }

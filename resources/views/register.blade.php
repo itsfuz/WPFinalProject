@@ -70,14 +70,14 @@
                     <br>
                     <div class="col-md-3">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Male">
+                            <label class="form-check-label" for="gender">Male</label>
                           </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Female">
+                            <label class="form-check-label" for="gender">Female</label>
                           </div>
                     </div>
                     @error('gender')
