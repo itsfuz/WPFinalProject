@@ -9,13 +9,11 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <form>
-                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
+            <form method="POST">
+                <h1 class="h3 mb-3 fw-normal">Please Sign-in</h1>
+                @csrf
                 <div class="form-floating">
-                  <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com")
-
-                  @enderror>
+                  <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com")>
                   <label for="floatingInput">Email address</label>
                 </div>
                 <br>
