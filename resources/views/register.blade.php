@@ -63,19 +63,25 @@
                     @enderror
                 </div>
                 <br>
-                <div class="form-floating">
-                    <input type="text" name="gender" class="form-control  @error('gender') is-invalid @enderror" id="gender" placeholder="Gender" value="{{ old('gender') }}">
-                    <label for="address">Gender</label>
-                    @error('gender')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
+                <div class="row align-items-center">
+                    <div class="col-md-3" style="text-align: center">
+                        <label for="gander" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}:</label>
+                    </div>
+                    <br>
+                    <div class="col-md-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                          </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                          </div>
+                    </div>
                 </div>
                 <br>
-
-                {{--butuh radio button untuk gender--}}
-
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Register Account</button>
 
               </form>
