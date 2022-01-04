@@ -17,7 +17,6 @@ class RegisterController extends Controller
     public function store(Request $request){
 
         $validatedData = $request->validate([
-            //validation masi masalah
             'full_name' => 'required|max:255|regex:/[a-zA-Z\s]+/',
             'email' => 'required|email:dns', //butuh validate untuk unique
             'password' => 'required|min:5|max:20',
