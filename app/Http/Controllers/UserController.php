@@ -43,4 +43,10 @@ class UserController extends Controller
         $users->save();
         return redirect()->back();
     }
+
+
+    public function logout(){
+        auth()->logout();
+        return redirect('->login');
+    }
 }

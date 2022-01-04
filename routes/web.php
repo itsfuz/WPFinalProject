@@ -3,6 +3,7 @@
 use App\Http\Controllers\FurnitureController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -36,3 +37,4 @@ Route::post('/addFurniture', [FurnitureController::class, 'addFurniture'])->name
 
 Route::post('/updateFurniture', [FurnitureController::class, 'updateFurniture'])->name('update');
 
+Route::get('/logout',[UserController::class, 'logout']);
