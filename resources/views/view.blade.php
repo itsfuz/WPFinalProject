@@ -8,6 +8,19 @@
 
     <div class="row" style="padding: 50px; justify-content:center">
 
+        @auth
+        @if (auth()->user()->role == 'member')
+
+        @endif
+        @else
+        <div class="input-group" style="padding:50px; justify-content:right;">
+            <input type="search" class="form-control rounded" placeholder=" Search by Furniture's name">
+            <button type="button" class="btn btn-outline-primary">Search</button>
+          </div>
+        @endauth
+          <br>
+          <br>
+
             @foreach ($furnitures as $f)
             <div class="col-5" style="width:300px; height:500px">
                 <div class="card" style="border-style:solid; align-items:center">
@@ -23,7 +36,7 @@
                         <div class="row">
                             <div class="column">
                                 <form action="" style="width:100px">
-                                    <a href="/login"> <button>Add to Cart</button></a>
+                                    <a href="/login"> <button type="button" class="btn btn-secondary">Add to Cart</button></a>
                                 </form>
                             </div>
                         </div>
@@ -46,17 +59,13 @@
                         @else
                         <div class="row">
                             <div class="column">
-                                <a href="/login"> <button style="width:100px">Add to Cart</button></a>
+                                <a href="/login"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
                             </div>
                         </div>
-
                         @endauth
-
-
                     </div>
                 </div>
             </div>
-
         <br>
         @endforeach
     </div>

@@ -41,7 +41,7 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="#">Home</a>
+                            <a class="nav-link" style="color:white" href="/home">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color:white" href="/viewFurniture">View</a>
