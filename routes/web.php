@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/', [HomeController::class, 'viewFurniture']);
 Route::get('/home', [HomeController::class, 'viewFurniture']);
 Route::get('/login', [HomeController::class, 'toLogin']);
 Route::get('/register', [RegisterController::class, 'index']);

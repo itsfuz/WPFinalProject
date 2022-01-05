@@ -4,7 +4,7 @@
 
 <main>
     <br>
-    <h1 style="text-align:center">View Furniture</h1>
+    <h1>View Furniture</h1>
 
     <div class="row" style="padding: 50px; justify-content:center">
 

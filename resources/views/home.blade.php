@@ -12,7 +12,7 @@
     @endif
     @else
     <br>
-    <h1 style="text-align: center">Welcome to JH Furniture</h1>
+    <h1>Welcome to JH Furniture</h1>
 @endauth
 
 <div class="row" style="padding: 50px; justify-content:center">
