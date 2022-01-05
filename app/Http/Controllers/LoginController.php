@@ -5,22 +5,27 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    //
-    use AuthenticatesUsers;
+    public function loginUser(Request $request){
+        $data = [
+            'email' => $request->input('email'),
+            'password' => $request->input('password')
+        ];
 
-    // @var string
+        $isvalid = auth()->attempt($data);
+        if($isvalid){
+            return redirect('/');
+        }else{
+            return redirect('/login');
+        }
+    }
 
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-
-
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
+    public function logout(){
+        auth()->logout();
+        return redirect('/');
     }
 
 }

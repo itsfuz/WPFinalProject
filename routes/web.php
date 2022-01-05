@@ -21,14 +21,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index']);
-
 Route::get('/login', [HomeController::class, 'toLogin']);
-
 Route::get('/register', [RegisterController::class, 'index']);
 
 Route::post('/registerUser', [RegisterController::class, 'store']);
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/login/user', [LoginController::class, 'loginUser']);
+Route::get('/logout',[LoginController::class,'logout']);
 
 Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture'])->name('view');
 
@@ -38,4 +36,4 @@ Route::post('/addFurniture', [FurnitureController::class, 'addFurniture'])->name
 
 Route::post('/updateFurniture', [FurnitureController::class, 'updateFurniture'])->name('update');
 
-Route::get('/logout',[UserController::class, 'logout']);
+

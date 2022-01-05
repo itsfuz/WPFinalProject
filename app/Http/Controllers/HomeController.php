@@ -11,6 +11,6 @@ class HomeController extends Controller
     }
 
     public function toLogin(){
-        return view('login');
+        return view('login-page');
     }
 }

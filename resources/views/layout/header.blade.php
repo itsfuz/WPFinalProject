@@ -41,51 +41,40 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="{{ route('home') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" style="color:white" href="#">home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="{{ route('view') }}">{{ __('View') }}</a>
+                            <a class="nav-link" style="color:white" href="#">view</a>
                         </li>
-                        @guest
-
-                                <li class="nav-item">
-                                    <a class="nav-link" style="color:white" href="/login">Log in</a>
-                                </li>
+                        @auth
 
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" style="color:white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                        {{-- if usernya admin, navbar login and register diganti profile and addfurniture --}}
-                        {{-- if usernya customer, navbar login and register diganti profile and cart --}}
-                            <li class="nav-item dropdown">
+                        @if(auth()->user()->role == 'member')
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:white" href="/login">my cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:white" href="/logout">Log out</a>
+                        </li>
 
-                                {{--  can be used for profile --}}
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-
-                                {{-- addfurniture --}}
-
-                                {{-- cart --}}
-
+                        @elseif (auth()->user()->role == 'admin'){
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:white" href="/login">manage product</a>
                             </li>
-                        @endguest
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:white" href="/logout">Log out</a>
+                            </li>
+
+                        }
+                        @endif
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:white" href="/login">Log in</a>
+                        </li><li class="nav-item">
+                            <a class="nav-link" style="color:white" href="/register">Register</a>
+                        </li>
+
+                        @endauth
                     </ul>
                 </div>
             </div>

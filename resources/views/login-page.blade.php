@@ -9,7 +9,7 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <form method="POST" action="{{route('login')}}">
+            <form method="POST" action="/login/user">
                 <h1 class="h3 mb-3 fw-normal">Please Sign-in</h1>
                 @csrf
                 <div class="form-floating">
