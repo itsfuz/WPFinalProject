@@ -41,17 +41,17 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="#">home</a>
+                            <a class="nav-link" style="color:white" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/viewFurniture">view</a>
+                            <a class="nav-link" style="color:white" href="/viewFurniture">View</a>
                         </li>
                         @auth
 
 
                         @if(auth()->user()->role == 'member')
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/login">my cart</a>
+                            <a class="nav-link" style="color:white" href="/login">My Cart</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color:white" href="/logout">Log out</a>
@@ -59,17 +59,17 @@
 
                         @elseif (auth()->user()->role == 'admin'){
                             <li class="nav-item">
-                                <a class="nav-link" style="color:white" href="/login">manage product</a>
+                                <a class="nav-link" style="color:white" href="/login">Manage Product</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="color:white" href="/logout">Log out</a>
+                                <a class="nav-link" style="color:white" href="/logout">Log Out</a>
                             </li>
 
                         }
                         @endif
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/login">Log in</a>
+                            <a class="nav-link" style="color:white" href="/login">Log In</a>
                         </li><li class="nav-item">
                             <a class="nav-link" style="color:white" href="/register">Register</a>
                         </li>
