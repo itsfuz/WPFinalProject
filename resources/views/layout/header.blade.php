@@ -44,7 +44,7 @@
                             <a class="nav-link" style="color:white" href="#">home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="#">view</a>
+                            <a class="nav-link" style="color:white" href="/viewFurniture">view</a>
                         </li>
                         @auth
 

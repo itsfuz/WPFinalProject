@@ -28,7 +28,7 @@ Route::post('/registerUser', [RegisterController::class, 'store']);
 Route::post('/login/user', [LoginController::class, 'loginUser']);
 Route::get('/logout',[LoginController::class,'logout']);
 
-Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture'])->name('view');
+Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture']);
 
 Route::get('/addFurniture', [FurnitureController::class, 'addFurniture'])->name('add');
 
