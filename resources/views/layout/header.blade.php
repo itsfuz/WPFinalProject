@@ -47,11 +47,11 @@
                             <a class="nav-link" style="color:white" href="{{ route('view') }}">{{ __('View') }}</a>
                         </li>
                         @guest
-                            @if (Route::has('login'))
+
                                 <li class="nav-item">
-                                    <a class="nav-link" style="color:white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" style="color:white" href="/login">Log in</a>
                                 </li>
-                            @endif
+
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
@@ -94,3 +94,4 @@
     </div>
 </body>
 </html>
+

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -16,30 +17,32 @@ class RegisterController extends Controller
 
     public function store(Request $request){
 
-        $validatedData = $request->validate([
-            'full_name' => 'required|max:255|regex:/[a-zA-Z\s]+/',
-            'email' => 'required|email:dns', //butuh validate untuk unique
-            'password' => 'required|min:5|max:20',
-            'Confirm Password' => 'same:password|required_with:password',
+        $rules = [
+
+            // 'full_name' => 'required|max:255|regex:/[a-zA-Z\s]+/',
+            // 'email' => 'required|email:dns', //butuh validate untuk unique
+            // 'password' => 'required|min:5|max:20',
+            // 'Confirm Password' => 'same:password|required_with:password',
             'address' => 'required',
             'gender' => 'required'
-        ]);
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+        if($validator->fails()){
+             return back()->withErrors($validator);
+         }
+
+
 
         // $validateData['role'] = 'member';
-        $validatedData['password'] = bcrypt($validatedData['password']);
 
-        $user = new User();
+        $user = User::create(request(['full_name', 'email', 'password', 'address', 'gender','member']));
 
-        $user->full_name = $validatedData['full_name'];
-        $user->email = $validatedData['email'];
-        $user->password = $validatedData['password'];
-        $user->address = $validatedData['address'];
-        $user->gender = $validatedData['gender'];
-        $user->role = 'member';
+        $user->password = bcrypt($request->password);
 
         $user->save();
 
-        return redirect('/login');
+        return redirect('/');
 
     }
 }

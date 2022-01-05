@@ -9,12 +9,12 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <form action="/register" method="POST">
+            <form action="/registerUser" method="POST">
                 @csrf
                 <h1 class="h3 mb-3 fw-normal">Fill the Form to Register</h1>
 
                 <div class="form-floating">
-                    <input type="text" name="full_name" class="form-control @error('fullname') is-invalid @enderror" id="full_name" placeholder="Full Name" value="{{ old('full_name') }}">
+                    <input type="text" name="full_name" class="form-control @error('full_name') is-invalid @enderror" id="full_name" placeholder="Full Name" value="{{ old('full_name') }}">
                     <label for="full_name">Full Name</label>
                     @error('full_name')
                         <div class="invalid-feedback">
