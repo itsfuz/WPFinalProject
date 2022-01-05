@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class FurnitureSeeder extends Seeder
+class userSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,37 +14,35 @@ class FurnitureSeeder extends Seeder
      */
     public function run()
     {
-        $furnitures = [
+        //
+        $users = [
             [
-                'name' => 'Jessheim',
-                'price' => 12000,
-                'type' => 'carpet',
-                'color' => 'blue',
-                'image' => '1'
+                'full_name' => 'alysa',
+                'email' => 'alsya@binus.ac.id',
+                'password' => 'admin1',
+                'address' => 'semarang',
+                'gender' => 'female',
+                'role' => 'admin'
             ],
             [
-                'name' => 'Grimsbu',
-                'price' => 1000000,
-                'type' => 'bed',
-                'color' => 'white',
-                'image' => '1'
-            ],
-            [
-                'name' => 'Antlop',
-                'price' => 200000,
-                'type' => 'chair',
-                'color' => 'white',
-                'image' => '1'
-            ],
-            [
-                'name' => 'Mammut',
-                'price' => 85000,
-                'type' => 'chair',
-                'color' => 'white',
-                'image' => '1'
-            ]
-            ];
+                'full_name' => 'carissa',
+                'email' => 'carissa@binus.ac.id',
+                'password' => 'member1',
+                'address' => 'semarang kw',
+                'gender' => 'male',
+                'role' => 'member',
 
-            DB::table('furnitures')->insert($furnitures);
+            ],
+            [
+                'full_name' => 'hansen',
+                'email' => 'hansen@binus.ac.id',
+                'password' => 'admin2',
+                'address' => 'tangerang',
+                'gender' => 'male',
+                'role' => 'admin'
+            ],
+        ];
+
+        DB::table('users')->insert($users);
     }
 }
