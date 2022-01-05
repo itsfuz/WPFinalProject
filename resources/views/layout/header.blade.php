@@ -46,8 +46,8 @@
                         <li class="nav-item">
                             <a class="nav-link" style="color:white" href="/viewFurniture">View</a>
                         </li>
-                        @auth
 
+                        @auth
 
                         @if(auth()->user()->role == 'member')
                         <li class="nav-item">
