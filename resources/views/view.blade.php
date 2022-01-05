@@ -6,8 +6,6 @@
     <br>
     <h1 style="text-align:center">View Furniture</h1>
 
-    {{-- view each furniture --}}
-
     <div class="row" style="padding: 50px; justify-content:center">
 
             @foreach ($furnitures as $f)
@@ -20,7 +18,16 @@
                         <p>Image:  </p>
                         <img src=" {{ asset($f->images) }}" alt="">
 
-                        {{-- if admin --}}
+                        @auth
+                        @if(auth()->user()->role == 'member')
+                        <div class="row">
+                            <div class="column">
+                                <form action="" style="width:100px">
+                                    <a href="/login"> <button>Add to Cart</button></a>
+                                </form>
+                            </div>
+                        </div>
+                    @elseif(auth()->user()->role == 'admin')
                         <div class="row">
                             <div class="column">
                                 <form action="">
@@ -34,35 +41,26 @@
                                 </form>
                             </div>
                         </div>
+
+                        @endif
+                        @else
+                        <div class="row">
+                            <div class="column">
+                                <a href="/login"> <button style="width:100px">Add to Cart</button></a>
+                            </div>
+                        </div>
+
+                        @endauth
+
+
                     </div>
                 </div>
             </div>
-
-
-
-
-                    {{-- if user --}}
-                    {{-- <div class="row">
-                        <div class="column">
-                            <form action="">
-                                <button type="submit">Add to Cart</button>
-                            </form>
-                        </div>
-                    </div> --}}
-
 
         <br>
         @endforeach
     </div>
 
-
-
-        {{-- ini yang ditunjukin dari lab --}}
-        {{-- <tr>
-            <td  class="furniture-table">
-                <img src="{{Storage::url($f->image)}}" alt="">
-
-    {{-- for validation error --}}
     <div>
         @if($errors->any())
             @foreach ($errors as $error)
