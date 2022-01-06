@@ -17,7 +17,10 @@ class FurnitureController extends Controller
 
         $this->middleware('auth');
 
-        return view('addFurniture');
+        if(auth()->user()->role == 'admin'){
+
+            return view('addFurniture');
+        }
 
     }
 

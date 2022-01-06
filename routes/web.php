@@ -29,6 +29,8 @@ Route::post('/registerUser', [RegisterController::class, 'store']);
 Route::post('/login/user', [LoginController::class, 'loginUser']);
 Route::get('/logout',[LoginController::class,'logout']);
 
+Route::get('/profile', [UserController::class, 'profilePage']); //work in progress
+
 Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture']);
 
 Route::get('/addFurniture', [FurnitureController::class, 'addFurniturePage']);
