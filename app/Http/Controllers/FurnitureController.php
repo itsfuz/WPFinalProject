@@ -33,7 +33,7 @@ class FurnitureController extends Controller
         $rules = [
             'name' => 'required|max:15',
             'price' => 'required|numeric|min:5000|max:10000000',
-            'image' => 'required|mimes:jpg,png',
+            'image' => 'required', //|mimes:jpg,png
             'type' => 'required',
             'color' => 'required'
         ];
@@ -42,17 +42,8 @@ class FurnitureController extends Controller
         if($validator->fails()){
             return back()->withErrors($validator);
         }
-        $furnitures = new Furniture();
 
-        $furnitures -> name = $request-> name;
-        $furnitures -> price = $request-> price;
-        $furnitures -> color = $request->color;
-        $file = $request->file('image');
-        $imageName = time().'.'.$file->getClientOriginalExtension();
-        Storage::putFileAs('public/storage/images',$file,$imageName);
-        $furnitures->image = 'images/'.$imageName;
-        $furnitures -> type = $request->type;
-
+        $furnitures = Furniture::create(request(['name', 'price', 'type', 'color', 'image']));
 
         $furnitures->save();
 

@@ -12,6 +12,7 @@ class Furniture extends Model
     public $timestamps = false;
 
     protected $table = 'furnitures';
+
     protected $fillable = [
         'name',
         'price',
