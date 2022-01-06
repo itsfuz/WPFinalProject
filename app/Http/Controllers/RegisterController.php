@@ -19,10 +19,10 @@ class RegisterController extends Controller
 
         $rules = [
 
-            // 'full_name' => 'required|max:255|regex:/[a-zA-Z\s]+/',
-            // 'email' => 'required|email:dns', //butuh validate untuk unique
-            // 'password' => 'required|min:5|max:20',
-            // 'Confirm Password' => 'same:password|required_with:password',
+            'full_name' => 'required|max:255|regex:/[a-zA-Z\s]+/',
+            'email' => 'required|email:dns|unique:users',
+            'password' => 'required|min:5|max:20',
+            'confPassword' => 'same:password|required_with:password',
             'address' => 'required',
             'gender' => 'required'
         ];
@@ -31,10 +31,6 @@ class RegisterController extends Controller
         if($validator->fails()){
              return back()->withErrors($validator);
          }
-
-
-
-        // $validateData['role'] = 'member';
 
         $user = User::create(request(['full_name', 'email', 'password', 'address', 'gender','member']));
 
