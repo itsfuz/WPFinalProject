@@ -34,7 +34,7 @@ Route::get('/profile', [UserController::class, 'profilePage']); //work in progre
 Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture']);
 
 Route::get('/addFurniture', [FurnitureController::class, 'addFurniturePage']);
-Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']);
+Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']); //sisa add image
 
 Route::post('/updateFurniture', [FurnitureController::class, 'updateFurniture'])->name('update');
 

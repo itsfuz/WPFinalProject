@@ -8,7 +8,7 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <form action="/addFurniture" method="POST">
+            <form action="/addFurniture" method="POST" enctype="multipart/form-data">
                 @csrf
                 <h1 class="h3 mb-3 fw-normal">Add Furniture</h1>
 
@@ -52,9 +52,10 @@
                     @enderror
                 </div>
                 <br>
-                <div class="form-floating">
-                    <input type="text" name="image" class="form-control  @error('image') is-invalid @enderror" id="image" placeholder="image.jpg" value="{{ old('image') }}">
-                    <label for="image">Image</label>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Insert Image</label>
+                    <input type="file" class="form-control @error('image') is-invalid @enderror" id="image">
+
                     @error('image')
                         <div class="invalid-feedback">
                             {{ $message }}

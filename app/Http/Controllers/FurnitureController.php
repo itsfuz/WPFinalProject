@@ -30,12 +30,15 @@ class FurnitureController extends Controller
     }
 
     public function addFurniture(Request $request){
+
+        ddd($request);
+
         $rules = [
             'name' => 'required|max:15',
             'price' => 'required|numeric|min:5000|max:10000000',
-            'image' => 'required', //|mimes:jpg,png
             'type' => 'required',
-            'color' => 'required'
+            'color' => 'required',
+            'image' => 'required|mimes:jpg,png'
         ];
 
         $validator = Validator::make($request->all(), $rules);
