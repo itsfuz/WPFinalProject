@@ -19,7 +19,7 @@ class userSeeder extends Seeder
             [
                 'full_name' => 'alysa',
                 'email' => 'alsya@binus.ac.id',
-                'password' => 'admin1',
+                'password' => bcrypt('admin1'),
                 'address' => 'semarang',
                 'gender' => 'female',
                 'role' => 'admin'
@@ -27,7 +27,7 @@ class userSeeder extends Seeder
             [
                 'full_name' => 'carissa',
                 'email' => 'carissa@binus.ac.id',
-                'password' => 'member1',
+                'password' => bcrypt('member1'),
                 'address' => 'semarang kw',
                 'gender' => 'male',
                 'role' => 'member',
@@ -36,7 +36,7 @@ class userSeeder extends Seeder
             [
                 'full_name' => 'hansen',
                 'email' => 'hansen@binus.ac.id',
-                'password' => 'admin2',
+                'password' => bcrypt('admin2'),
                 'address' => 'tangerang',
                 'gender' => 'male',
                 'role' => 'admin'

@@ -31,9 +31,9 @@ Route::get('/logout',[LoginController::class,'logout']);
 
 Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture']);
 
-Route::get('/addFurniture', [FurnitureController::class, 'addFurniture'])->name('add');
+Route::get('/addFurniture', [FurnitureController::class, 'addFurniturePage']);
 
-Route::post('/addFurniture', [FurnitureController::class, 'addFurniture'])->name('add');
+Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']);
 
 Route::post('/updateFurniture', [FurnitureController::class, 'updateFurniture'])->name('update');
 

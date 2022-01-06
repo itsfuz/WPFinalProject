@@ -13,6 +13,18 @@ class FurnitureController extends Controller
         return view('home');
     }
 
+    public function addFurniturePage(){
+
+        if(auth()->user()->role == 'member' || auth()->user()->role == 'admin'){
+            return view('addFurniture');
+        }
+        if(auth()->user()->NULL){
+            return view('login-page');
+        }
+
+
+    }
+
     public function viewFurniture(){
         $furnitures = Furniture::all();
         return view('view', compact('furnitures', $furnitures));
