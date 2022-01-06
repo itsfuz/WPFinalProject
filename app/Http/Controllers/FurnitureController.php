@@ -15,13 +15,9 @@ class FurnitureController extends Controller
 
     public function addFurniturePage(){
 
-        if(auth()->user()->role == 'member' || auth()->user()->role == 'admin'){
-            return view('addFurniture');
-        }
-        if(auth()->user()->NULL){
-            return view('login-page');
-        }
+        $this->middleware('auth');
 
+        return view('addFurniture');
 
     }
 
