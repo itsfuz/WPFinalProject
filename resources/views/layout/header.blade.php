@@ -65,9 +65,11 @@
                                 <a class="nav-link" style="color:white" href="/logout">Log Out</a>
                             </li>
 
+
                         }
                         @endif
                         @else
+
                         <li class="nav-item">
                             <a class="nav-link" style="color:white" href="/login">Log In</a>
                         </li><li class="nav-item">
