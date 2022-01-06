@@ -80,6 +80,7 @@ class FurnitureController extends Controller
             Storage::delete('public/'.$furnitures->image);
             $furnitures-> delete();
         }
-        return redirect()->back();
+        return redirect('view')->with('success','Post has been deleted');
     }
+
 }

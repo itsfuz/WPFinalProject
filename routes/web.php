@@ -38,4 +38,4 @@ Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']); //si
 
 Route::post('/updateFurniture', [FurnitureController::class, 'updateFurniture'])->name('update');
 
-
+Route::post('/deleteFurniture', [FurnitureController::class, 'deleteFurniture']);
