@@ -43,14 +43,18 @@
                     @elseif(auth()->user()->role == 'admin')
                         <div class="row">
                             <div class="column">
-                                <form action="">
-                                    <button type="submit">Update</button>
+                                <form action="{{route('update', $f->id)}}" method="POST">
+                                    @method('update')
+                                    @csrf
+                                    <button class="badge bg-success">Update</button>
                                 </form>
                             </div>
 
                             <div class="column">
-                                <form action="">
-                                    <button type="submit">Delete</button>
+                                <form action="{{route('furniture.deleteFurniture', $f->id)}}" method="POST">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="badge bg-danger">Delete</button>
                                 </form>
                             </div>
                         </div>
