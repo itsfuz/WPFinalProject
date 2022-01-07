@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="column">
-                                <form action="{{route('furniture.deleteFurniture', $f->id)}}" method="POST">
+                                <form action="{{route('deleteFurniture', $f->id)}}" method="POST">
                                     @method('delete')
                                     @csrf
                                     <button class="badge bg-danger">Delete</button>
