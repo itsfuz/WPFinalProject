@@ -25,7 +25,7 @@
                     <p>Name: {{$f->name}}</p>
                     <p>Price: Rp. {{$f->price}}</p>
                     <p>Image:  </p>
-                    <img src=" {{ asset($f->images) }}" alt="">
+                    <img src=" {{ Storage::url($f->image) }}" alt="" width="100px;" height="100px;">
 
                     @auth
                     @if(auth()->user()->role == 'member')

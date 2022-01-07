@@ -54,7 +54,7 @@
                 <br>
                 <div class="mb-3">
                     <label class="form-label" for="image">Insert Image</label>
-                    <input type="file" class="form-control @error('image') is-invalid @enderror" id="image">
+                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
 
                     @error('image')
                         <div class="invalid-feedback">

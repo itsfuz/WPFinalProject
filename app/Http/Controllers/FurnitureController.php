@@ -31,7 +31,6 @@ class FurnitureController extends Controller
 
     public function addFurniture(Request $request){
 
-        ddd($request);
 
         $rules = [
             'name' => 'required|max:15',
@@ -46,11 +45,18 @@ class FurnitureController extends Controller
             return back()->withErrors($validator);
         }
 
+        $file = $request->file('image');
+        $imageName = time().'.'.$file->getClientOriginalExtension();
+        Storage::putFileAs('public/images',$file,$imageName);
+
+
         $furnitures = Furniture::create(request(['name', 'price', 'type', 'color', 'image']));
+
+        $furnitures->image = 'images/'.$imageName;
 
         $furnitures->save();
 
-        return redirect()->back();
+        return redirect('/');
 
     }
 
