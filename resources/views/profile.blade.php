@@ -3,11 +3,11 @@
 @section('content')
 <h1>(Blank) Profile</h1>
 
-<h3>Full Name: </h3>
-<h3>Email: </h3>
-<h3>Address: </h3>
-<h3>Gender: </h3>
-<h3>Role: </h3>
+<h3>Full Name: {{$fullname}}</h3>
+<h3>Email: {{$email}}</h3>
+<h3>Address: {{$address}}</h3>
+<h3>Gender: {{$gender}}</h3>
+<h3>Role: {{$role}}</h3>
 {{-- if admin then this --}}
 <div class="row">
     <div class="column">
