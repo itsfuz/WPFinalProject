@@ -10,7 +10,7 @@
         <div class="col-md-3">
             <form action="/addFurniture" method="POST">
                 @csrf
-                <h1 class="h3 mb-3 fw-normal">Add Furniture</h1>
+                <h1 class="h3 mb-3 fw-normal">Update Furniture</h1>
 
                 <div class="form-floating">
                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" value="{{ old('name') }}">
@@ -62,7 +62,7 @@
                     @enderror
                 </div>
                 <br>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Add Furniture</button>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Update Furniture</button>
 
               </form>
         </div>

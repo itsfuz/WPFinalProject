@@ -24,9 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm">
             <div class="container">
                 <img src="{{asset('assets/JH_Furniturelogo.png')}}" alt="JH Furniture" style="width:150px">
-                {{-- <a class="navbar-brand" href="{{ url('/') }}" style="color:white">
-                    {{ config('header.name', 'JH Furniture') }}
-                </a> --}}
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -57,17 +55,15 @@
                             <a class="nav-link" style="color:white" href="/logout">Cart</a>
                         </li>
 
-                        @elseif (auth()->user()->role == 'admin'){
+                        @elseif (auth()->user()->role == 'admin')
                             <li class="nav-item">
 
                                 <a class="nav-link" style="color:white" href="/profile">Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="color:white" href="/addFurniture">Add Furniture</a>
+                                <a class="nav-link" style="color:white" href="addFurniture">Add Furniture</a>
                             </li>
 
-
-                        }
                         @endif
                         @else
 
