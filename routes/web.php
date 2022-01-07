@@ -36,7 +36,7 @@ Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture']);
 Route::get('/addFurniture', [FurnitureController::class, 'addFurniturePage']);
 Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']); //sisa add image
 
-Route::post('/updateFurniture', [FurnitureController::class, 'updateFurniture'])->name('update');
+Route::post('/updateFurniture', [FurnitureController::class, 'updateFurniture']);
 
 Route::post('/deleteFurniture', [FurnitureController::class, 'deleteFurniture']);
 

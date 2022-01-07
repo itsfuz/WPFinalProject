@@ -66,7 +66,7 @@
 
         <div class="col-md-2">
             <form action="">
-                <a href="updateProfile"> <button type="button">Update Profile</button></a>
+                <a href="/updateProfile"><button type="button">Update Profile</button></a>
             </form>
         </div>
     </div>
