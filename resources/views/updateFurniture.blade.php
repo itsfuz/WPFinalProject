@@ -8,7 +8,7 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <form action="/addFurniture" method="POST">
+            <form action="/updateFurniture" method="POST">
                 @csrf
                 <h1 class="h3 mb-3 fw-normal">Update Furniture</h1>
 

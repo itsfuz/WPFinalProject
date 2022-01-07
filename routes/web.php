@@ -39,3 +39,6 @@ Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']); //si
 Route::post('/updateFurniture', [FurnitureController::class, 'updateFurniture'])->name('update');
 
 Route::post('/deleteFurniture', [FurnitureController::class, 'deleteFurniture']);
+
+Route::get('/updateProfile', [UserController::class, 'updateProfilePage']);
+Route::post('/updateProfile', [UserController::class, 'updateProfile']);

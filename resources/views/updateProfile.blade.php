@@ -1,61 +1,63 @@
-@extends('layouts.master')
+@extends('layout.master')
 
 @section('content')
 
-<h1>Update Furniture</h1>
-<form action="/updateFurniture" method="POST" enctype="multipart/form-data">
-    {{ csrf_field() }}
-    <div class="row mb-3">
-        <label for="name">Name</label>
+<main class="forms">
 
-        <div class="col-md-6">
-            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-            name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <br>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <form action="/addFurniture" method="POST" enctype="multipart/form-data">
+                @csrf
+                <h1 class="h3 mb-3 fw-normal">Update Profile</h1>
 
-            @error('name')
+                <div class="form-floating">
+                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" value="{{ old('name') }}">
+                    <label for="name">Full Name</label>
+                    @error('name')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <br>
+                <div class="form-floating">
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" value="{{ old('email') }}">
+                    <label for="email">Email</label>
+                      @error('email')
+                          <div class="invalid-feedback">
+                              {{ $message }}
+                          </div>
+                      @enderror
+                  </div>
+                  <br>
+                  <div class="form-floating">
+                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password">
+                    <label for="password">Password</label>
+                      @error('password')
+                          <div class="invalid-feedback">
+                              {{ $message }}
+                          </div>
+                      @enderror
+                  </div>
+                <br>
+                <div class="form-floating">
+                  <input type="text" name="type" class="form-control @error('type') is-invalid @enderror" id="type" placeholder="Chair">
+                  <label for="type">Address</label>
+                    @error('type')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <br>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Update Profile</button>
 
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-
-            @enderror
+              </form>
         </div>
     </div>
 
-    <div class="row mb-3">
-        <label for="name">Price</label>
-        <div class="col-md-6">
-            <input type="text" name="price" id="">
-        </div>
-    </div>
-
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Type
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-
-    <div class="row mb-3">
-        <label for="name">Color</label>
-        <div class="col-md-6">
-            <input type="text" name="" id="">
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="name">Image</label>
-        <div class="col-md-6">
-            <input type="text" name="" id="">
-        </div>
-    </div>
-
-</form>
-
-
+  </main>
 
 @endsection
