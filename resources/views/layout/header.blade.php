@@ -51,18 +51,18 @@
 
                         @if(auth()->user()->role == 'member')
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/login">My Cart</a>
+                            <a class="nav-link" style="color:white" href="/profile">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/logout">Log out</a>
+                            <a class="nav-link" style="color:white" href="/logout">Cart</a>
                         </li>
 
                         @elseif (auth()->user()->role == 'admin'){
                             <li class="nav-item">
-                                <a class="nav-link" style="color:white" href="/login">Manage Product</a>
+                                <a class="nav-link" style="color:white" href="/profile">Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="color:white" href="/logout">Log Out</a>
+                                <a class="nav-link" style="color:white" href="/addFurniture">Add Furniture</a>
                             </li>
 
 
