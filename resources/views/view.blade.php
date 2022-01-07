@@ -42,7 +42,8 @@
                     @elseif(auth()->user()->role == 'admin')
                         <div class="row">
                             <div class="column">
-                                <form action="{{route('update', $f->id)}}" method="POST">
+                                {{-- {{route('update', $f->id)}} --}}
+                                <form action="" method="POST">
                                     @method('update')
                                     @csrf
                                     <button class="badge bg-success">Update</button>
@@ -50,7 +51,8 @@
                             </div>
 
                             <div class="column">
-                                <form action="{{route('deleteFurniture', $f->id)}}" method="POST">
+                                {{-- {{route('deleteFurniture', $f->id)}} --}}
+                                <form action="" method="POST">
                                     @method('delete')
                                     @csrf
                                     <button class="badge bg-danger">Delete</button>

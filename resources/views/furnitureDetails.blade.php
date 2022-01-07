@@ -1,15 +1,91 @@
-@extends('layouts.master')
+@extends('layout.master')
 
 @section('content')
 {{-- connect by id from the view blade?? --}}
-<h1>{{$f->name}}</h1>
 
-<p>Image:  </p>
-<img src=" {{Storage::url($f->images)}}" alt="">
+<div class="container" style="padding:50px">
 
-<p>Price: Rp. {{$f->price}}</p>
-<p>Color: {{$f->color}}</p>
-<p>Type: {{$f->type}}</p>
+    <h1>{{$f->name}}</h1>
+    <br><br>
+    <div class="" style="x">
+        <div class="row justify-content-end">
+            <div class="col-md-5">
+                <img class="card-img-top" src="{{ Storage::url($f->image) }}" alt="Furniture Image" style="width:300px">
+            </div>
+                <div class="col-sm-2">
+                    <p><b>Name :</b></p>
+                    <p><b>Price :</b></p>
+                    <p><b>Color :</b></p>
+                    <p><b>Type :</b></p>
+                </div>
+                <div class="col-md-4" style="text-align: left">
+                    <p>{{$f->name}}</p>
+                    <p>Rp. {{$f->price}}</p>
+                    <p>{{$f->color}}</p>
+                    <p>{{$f->type}}</p>
+                </div>
+
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div style="padding: 20px;">
+        @auth
+        @if(auth()->user()->role == 'member')
+            <div class="row justify-content-center">
+                <div class="column-sm-2">
+                    <form action="" style="width:100px">
+                        <a href="/login"> <button type="button" class="btn btn-secondary">Previous</button></a>
+                    </form>
+                </div>
+                <div class="column">
+                    <form action="" style="width:100px">
+                        <a href="/login"> <button type="button" class="btn btn-secondary">Add to Cart</button></a>
+                    </form>
+                </div>
+            </div>
+        @elseif(auth()->user()->role == 'admin')
+            <div class="row justify-content-center">
+                <div class="col-md-auto">
+                    <form action="">
+                        <button class="btn btn-secondary" type="submit">Previous</button>
+                    </form>
+                </div>
+                <div class="col-md-auto">
+                    <form action="">
+                        <button class="btn btn-success" type="submit">Update</button>
+                    </form>
+                </div>
+                <div class="col-md-auto">
+                    <form action="">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+
+            @endif
+            @else
+            <div class="row justify-content-center">
+                <div class="column">
+                    <a href="/login"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
+                </div>
+            </div>
+            @endauth
+        </div>
+    </div>
+
+
+
+    <div>
+        @if($errors->any())
+            @foreach ($errors as $error)
+            <i>{{$errors}}</i>
+            <br>
+            @endforeach
+        @endif
+    </div>
+</div>
+
 
 
 @endsection

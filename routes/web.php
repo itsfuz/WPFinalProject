@@ -6,7 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +36,10 @@ Route::post('/updateProfile', [UserController::class, 'updateProfile']);
 Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture']);
 
 Route::get('/addFurniture', [FurnitureController::class, 'addFurniturePage']);
-Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']); //sisa add image
+Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']);
 Route::post('/updateFurniture', [FurnitureController::class, 'updateFurniture']);
 Route::post('/deleteFurniture', [FurnitureController::class, 'deleteFurniture']);
+
+Route::get('/furnitureDetails/{id}', [FurnitureController::class, 'furnitureDetails']);
 
 

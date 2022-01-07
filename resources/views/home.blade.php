@@ -20,14 +20,14 @@
         @foreach ($furnitures as $f)
         <div class="col-5" style="width:300px; height:500px">
             <div class="card bg-light mb-3" style="border-style:solid; align-items:center">
-                <img class="card-img-top" src="{{ Storage::url($f->image) }}" alt="Furniture Image" style="padding: 2px">
+                <a href="/furnitureDetails/{{$f->id}}"><img class="card-img-top" src="{{ Storage::url($f->image) }}" alt="Furniture Image" style="padding: 2px"></a>
                 <div style="padding: 20px">
                     <br>
                     <p>Name: {{$f->name}}</p>
                     <p>Price: Rp. {{$f->price}}</p>
                     <br>
-                    @auth
-                    @if(auth()->user()->role == 'member')
+                @auth
+                @if(auth()->user()->role == 'member')
                     <div class="row">
                         <div class="column">
                             <form action="" style="width:100px">

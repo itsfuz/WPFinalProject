@@ -89,4 +89,12 @@ class FurnitureController extends Controller
         return redirect('view')->with('success','Post has been deleted');
     }
 
+    public function furnitureDetails($id){
+        $furnitures = Furniture::find($id);
+        if ($furnitures==null) {
+            return redirect('/');
+        }
+        return view('furnitureDetails',['f'=>$furnitures]);
+    }
+
 }
