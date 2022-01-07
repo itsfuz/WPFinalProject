@@ -59,7 +59,7 @@
 
                         @elseif (auth()->user()->role == 'admin'){
                             <li class="nav-item">
-                                {{-- /{{ user()->id }} --}}
+
                                 <a class="nav-link" style="color:white" href="/profile">Profile</a>
                             </li>
                             <li class="nav-item">

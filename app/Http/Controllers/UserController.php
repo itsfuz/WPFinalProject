@@ -24,16 +24,18 @@ class UserController extends Controller
 
     public function getProfile($id){
 
-        $profileResult = User::where('id', '=', $id)->get();
-        $profile = User:: where('id', '=', $profileResult[0]->id)->get();
+        // $profileResult = User::where('id', '=', $id)->get();
+        // $profile = User:: where('id', '=', $profileResult[0]->id)->get();
 
-        return view ('profile', [
-            "fullname" => $profile[0]->full_name,
-            "email" => $profile[0]->email,
-            "gender" => $profile[0]->gender,
-            "address" => $profile[0]->address,
-            "role" => $profile[0]->role
+        // return view ('profile', [
+        //     "fullname" => $profile[0]->full_name,
+        //     "email" => $profile[0]->email,
+        //     "gender" => $profile[0]->gender,
+        //     "address" => $profile[0]->address,
+        //     "role" => $profile[0]->role
 
-        ]);
+        // ]);
+
+        return view('profile');
     }
 }

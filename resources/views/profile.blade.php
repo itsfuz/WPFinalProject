@@ -1,13 +1,13 @@
 @extends('layout.master')
 
 @section('content')
-<h1>(Blank) Profile</h1>
+<h1>{{auth()->user()->full_name}}'s Profile</h1>
 
-<h3>Full Name: {{$fullname}}</h3>
-<h3>Email: {{$email}}</h3>
-<h3>Address: {{$address}}</h3>
-<h3>Gender: {{$gender}}</h3>
-<h3>Role: {{$role}}</h3>
+<h3>Full Name: {{auth()->user()->full_name}}</h3>
+<h3>Email: {{auth()->user()->email}}</h3>
+<h3>Address: {{auth()->user()->address}}</h3>
+<h3>Gender: {{auth()->user()->gender}}</h3>
+<h3>Role: {{auth()->user()->role}}</h3>
 {{-- if admin then this --}}
 <div class="row">
     <div class="column">
