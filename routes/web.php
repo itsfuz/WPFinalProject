@@ -30,15 +30,14 @@ Route::post('/login/user', [LoginController::class, 'loginUser']);
 Route::get('/logout',[LoginController::class,'logout']);
 
 Route::get('/profile', [UserController::class, 'profilePage']); //work in progress
+Route::get('/updateProfile', [UserController::class, 'updateProfilePage']);
+Route::post('/updateProfile', [UserController::class, 'updateProfile']);
 
 Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture']);
 
 Route::get('/addFurniture', [FurnitureController::class, 'addFurniturePage']);
 Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']); //sisa add image
-
 Route::post('/updateFurniture', [FurnitureController::class, 'updateFurniture']);
-
 Route::post('/deleteFurniture', [FurnitureController::class, 'deleteFurniture']);
 
-Route::get('/updateProfile', [UserController::class, 'updateProfilePage']);
-Route::post('/updateProfile', [UserController::class, 'updateProfile']);
+

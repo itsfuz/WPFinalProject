@@ -8,12 +8,12 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <form action="/addFurniture" method="POST" enctype="multipart/form-data">
+            <form action="/updateProfile" method="POST">
                 @csrf
                 <h1 class="h3 mb-3 fw-normal">Update Profile</h1>
 
                 <div class="form-floating">
-                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" value="{{ old('name') }}">
+                    <input type="text" name="full_name" class="form-control @error('full_name') is-invalid @enderror" id="full_name" placeholder="name" value="{{ old('full_name') }}">
                     <label for="name">Full Name</label>
                     @error('name')
                         <div class="invalid-feedback">

@@ -73,7 +73,7 @@
     @elseif (auth()->User()->role == 'member')
     <div class="row">
         <div class="col-md-2">
-            <form action="">
+            <form action="/logout">
                 <button type="submit">Logout</button>
             </form>
         </div>
