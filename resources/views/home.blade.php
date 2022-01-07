@@ -19,14 +19,13 @@
 
         @foreach ($furnitures as $f)
         <div class="col-5" style="width:300px; height:500px">
-            <div class="card" style="border-style:solid; align-items:center">
-
+            <div class="card bg-light mb-3" style="border-style:solid; align-items:center">
+                <img class="card-img-top" src="{{ Storage::url($f->image) }}" alt="Furniture Image" style="padding: 2px">
                 <div style="padding: 20px">
+                    <br>
                     <p>Name: {{$f->name}}</p>
                     <p>Price: Rp. {{$f->price}}</p>
-                    <p>Image:  </p>
-                    <img src=" {{ Storage::url($f->image) }}" alt="" width="100px;" height="100px;">
-
+                    <br>
                     @auth
                     @if(auth()->user()->role == 'member')
                     <div class="row">
