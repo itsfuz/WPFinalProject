@@ -31,18 +31,41 @@ class UserController extends Controller
 
     public function updateProfile(Request $request){
 
-        $profile = User::find($request->id); //problem
 
-        ddd($request);
+        $rules = [
 
-        $profile->full_name = $request->full_name;
-        $profile->email = $request->email;
-        $profile->password = $request->password;
-        $profile->address = $request->address;
+            'full_name' => 'required|max:255',
+            'password' => 'required|min:5|max:20',
+            'address' => 'required'
 
-        $profile->save();
+        ];
 
-        return redirect()->back();
+        if($request->email != auth()->user()->email){
+
+            $rules['email'] = 'unique:users|required|email:dns';
+        }
+
+
+        $validator = Validator::make($request->all(), $rules);
+        if($validator->fails()){
+             return back()->withErrors($validator);
+        }
+
+
+
+        $user = User::find(auth()->user()->id);
+
+        if($user){
+            $user->full_name = $request->full_name;
+            $user->password = bcrypt($request->password);
+            $user->address = $request->address;
+            $user->email = $request->email;
+
+            $user->save();
+        }
+
+
+        return redirect('/profile');
 
 }
 }

@@ -43,9 +43,9 @@
                   </div>
                 <br>
                 <div class="form-floating">
-                  <input type="text" name="type" class="form-control @error('type') is-invalid @enderror" id="type" placeholder="Chair">
-                  <label for="type">Address</label>
-                    @error('type')
+                  <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="Chair">
+                  <label for="address">Address</label>
+                    @error('address')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
