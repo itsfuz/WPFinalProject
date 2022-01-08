@@ -38,8 +38,9 @@
                 @elseif(auth()->user()->role == 'admin')
                     <div class="row">
                         <div class="column">
-                            <form action="">
-                                <button type="submit" class="btn btn-success">Update</button>
+                            <form action="/updateFurniture" method="POST" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <a href="/updateFurniture"><button type="button" class="btn btn-success">Update</button></a>
                             </form>
                         </div>
 
@@ -54,7 +55,7 @@
                     @else
                     <div class="row">
                         <div class="column">
-                            <a href="/cart"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
+                            <a href="/login"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
                         </div>
                     </div>
                     @endauth

@@ -64,7 +64,7 @@
                         @else
                         <div class="row">
                             <div class="column">
-                                <a href="/cart"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
+                                <a href="/login"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
                             </div>
                         </div>
                         @endauth

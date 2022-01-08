@@ -21,16 +21,15 @@ class FurnitureController extends Controller
 
             return view('addFurniture');
         }
-
     }
 
     public function viewFurniture(){
+
         $furnitures = Furniture::all();
         return view('view', compact('furnitures', $furnitures));
     }
 
     public function addFurniture(Request $request){
-
 
         $rules = [
             'name' => 'required|max:15',
@@ -57,7 +56,16 @@ class FurnitureController extends Controller
         $furnitures->save();
 
         return redirect('/');
+    }
 
+    public function updateFurniturePage(){
+
+        $this->middleware('auth');
+
+        if(auth()->user()->role == 'admin'){
+
+            return view('updateFurniture');
+        }
     }
 
     public function updateFurniture(Request $request){
@@ -72,7 +80,8 @@ class FurnitureController extends Controller
         Storage::putFileAs('public/storage/images',$file,$imageName);
         $furnitures -> type = $request->type;
 
-        Storage::delete('public/'.$furnitures->image);
+        Storage::delete('public/storage/'.$furnitures->image);
+
         $request->image->move(public_path('images'), $imageName);
         $furnitures->save();
 

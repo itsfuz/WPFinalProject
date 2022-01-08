@@ -38,7 +38,10 @@ Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture']);
 
 Route::get('/addFurniture', [FurnitureController::class, 'addFurniturePage']);
 Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']);
-Route::post('/updateFurniture', [FurnitureController::class, 'updateFurniture']);
+
+Route::get('/updateFurniture', [FurnitureController::class, 'updateFurniturePage']);
+Route::post('/updateFurniture/{id}', [FurnitureController::class, 'updateFurniture'])->name('updateFurniture');
+
 Route::post('/deleteFurniture', [FurnitureController::class, 'deleteFurniture']);
 
 Route::get('/furnitureDetails/{id}', [FurnitureController::class, 'furnitureDetails']);
