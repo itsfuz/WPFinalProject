@@ -4,6 +4,7 @@ use App\Http\Controllers\FurnitureController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
@@ -42,4 +43,4 @@ Route::post('/deleteFurniture', [FurnitureController::class, 'deleteFurniture'])
 
 Route::get('/furnitureDetails/{id}', [FurnitureController::class, 'furnitureDetails']);
 
-
+Route::get('/cart', [TransactionController::class, 'cart']);

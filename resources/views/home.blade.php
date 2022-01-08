@@ -30,8 +30,8 @@
                 @if(auth()->user()->role == 'member')
                     <div class="row">
                         <div class="column">
-                            <form action="" style="width:100px">
-                                <a href="/login"> <button type="button" class="btn btn-secondary">Add to Cart</button></a>
+                            <form action="">
+                                <a href="/cart"> <button type="button" class="btn btn-primary" style="width: 150px">Add to Cart</button></a>
                             </form>
                         </div>
                     </div>
@@ -39,13 +39,13 @@
                     <div class="row">
                         <div class="column">
                             <form action="">
-                                <button type="submit">Update</button>
+                                <button type="submit" class="btn btn-success">Update</button>
                             </form>
                         </div>
 
                         <div class="column">
                             <form action="">
-                                <button type="submit">Delete</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                     @else
                     <div class="row">
                         <div class="column">
-                            <a href="/login"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
+                            <a href="/cart"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
                         </div>
                     </div>
                     @endauth

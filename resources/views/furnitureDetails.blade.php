@@ -33,14 +33,14 @@
         @auth
         @if(auth()->user()->role == 'member')
             <div class="row justify-content-center">
-                <div class="column-sm-2">
-                    <form action="" style="width:100px">
+                <div class="col-sm-2">
+                    <form action="">
                         <a href="/login"> <button type="button" class="btn btn-secondary">Previous</button></a>
                     </form>
                 </div>
-                <div class="column">
-                    <form action="" style="width:100px">
-                        <a href="/login"> <button type="button" class="btn btn-secondary">Add to Cart</button></a>
+                <div class="col-sm-2">
+                    <form action="">
+                        <a href="/cart"> <button type="button" class="btn btn-primary">Add to Cart</button></a>
                     </form>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             @else
             <div class="row justify-content-center">
                 <div class="column">
-                    <a href="/login"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
+                    <a href="/cart"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
                 </div>
             </div>
             @endauth

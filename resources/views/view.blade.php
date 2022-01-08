@@ -35,7 +35,7 @@
                         <div class="row">
                             <div class="column">
                                 <form action="" style="width:100px">
-                                    <a href="/login"> <button type="button" class="btn btn-secondary">Add to Cart</button></a>
+                                    <a href="/cart"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
                                 </form>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                 <form action="" method="POST">
                                     @method('update')
                                     @csrf
-                                    <button class="badge bg-success">Update</button>
+                                    <button class="btn btn-success">Update</button>
                                 </form>
                             </div>
 
@@ -55,7 +55,7 @@
                                 <form action="" method="POST">
                                     @method('delete')
                                     @csrf
-                                    <button class="badge bg-danger">Delete</button>
+                                    <button class="btn btn-danger">Delete</button>
                                 </form>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                         @else
                         <div class="row">
                             <div class="column">
-                                <a href="/login"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
+                                <a href="/cart"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
                             </div>
                         </div>
                         @endauth

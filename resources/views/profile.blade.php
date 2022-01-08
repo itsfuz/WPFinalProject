@@ -52,38 +52,38 @@
 
     @if (auth()->User()->role == 'admin')
     <div class="row justify-content-center">
-        <div class="col-md-2">
+        <div class="col-md-auto">
             <form action="logout">
-                <button type="submit">Logout</button>
+                <button type="submit" class="btn btn-outline-danger">Logout</button>
             </form>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-auto">
             <form action="">
-                <button type="submit">View All User's Transaction</button>
+                <button type="submit" class="btn btn-outline-secondary">View All User's Transaction</button>
             </form>
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-auto">
             <form action="">
-                <a href="/updateProfile"><button type="button">Update Profile</button></a>
+                <a href="/updateProfile"><button type="button" class="btn btn-outline-secondary">Update Profile</button></a>
             </form>
         </div>
     </div>
     @elseif (auth()->User()->role == 'member')
-    <div class="row">
-        <div class="col-md-2">
+    <div class="row justify-content-center">
+        <div class="col-md-auto">
             <form action="/logout">
-                <button type="submit">Logout</button>
+                <button type="submit"  class="btn btn-outline-danger">Logout</button>
             </form>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-auto">
             <form action="">
-                <button type="submit">View Transaction History</button>
+                <button type="submit" class="btn btn-outline-secondary">View Transaction History</button>
             </form>
         </div>
-        <div class="col-md-2">
-                <a href="/updateProfile"><button type="button">Update Profile</button></a>
+        <div class="col-md-auto">
+                <a href="/updateProfile"><button type="button" class="btn btn-outline-secondary">Update Profile</button></a>
         </div>
     </div>
     @endif
