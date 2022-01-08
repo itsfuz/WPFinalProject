@@ -38,14 +38,14 @@
                 @elseif(auth()->user()->role == 'admin')
                     <div class="row">
                         <div class="column">
-                            <form action="/updateFurniture" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('updateFurniture', $f->id)}}" method="POST" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <a href="/updateFurniture"><button type="button" class="btn btn-success">Update</button></a>
                             </form>
                         </div>
 
                         <div class="column">
-                            <form action="">
+                            <form action="{{route('deleteFurniture', $f->id)}}">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </div>
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-    <br>
+        <br>
     @endforeach
 </div>
 

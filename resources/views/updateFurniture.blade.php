@@ -22,7 +22,7 @@
                 </div>
                 <br>
                 <div class="form-floating">
-                  <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" id="price" placeholder="190000" value="{{ old('email') }}">
+                  <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" id="price" placeholder="190000">
                   <label for="price">Price</label>
                     @error('price')
                         <div class="invalid-feedback">
