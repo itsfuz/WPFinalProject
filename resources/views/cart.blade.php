@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-
+<br>
 <h1>Cart</h1>
 <div class="container" style="padding: 30px; text-align:center">
     <table class="table">
@@ -45,7 +45,8 @@
         <p><b>Total:</b> Rp.<?php echo $TotalCost ?></p>
       </div>
       <br><br>
-      <a href="/checkout"> <button type="button" class="btn btn-primary">Proceed to Checkout</button></a>
+
+      <a href="/checkOut/{{auth()->user()->id}}"> <button type="button" class="btn btn-primary">Proceed to Checkout</button></a>
 </div>
 
 

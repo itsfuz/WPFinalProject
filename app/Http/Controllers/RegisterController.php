@@ -40,7 +40,7 @@ class RegisterController extends Controller
 
         $user->save();
 
-        return redirect('/');
+        return redirect('/')->with('notification', 'Account has been Created!');;
 
     }
 }

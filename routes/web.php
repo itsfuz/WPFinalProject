@@ -49,5 +49,4 @@ Route::get('/furnitureDetails/{id}', [FurnitureController::class, 'furnitureDeta
 
 Route::get('/viewCart/{id}', [CartController::class, 'viewCart']);
 Route::post('/addToCart/{id}', [CartController::class, 'addToCart']);
-
-Route::get('checkout', [CartController::class, 'viewCart']);
+Route::get('/checkOut/{id}', [TransactionController::class, 'checkOut']);
