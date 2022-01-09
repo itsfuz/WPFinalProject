@@ -66,6 +66,7 @@
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Add Furniture</button>
 
               </form>
+              <br>
         </div>
     </div>
 
