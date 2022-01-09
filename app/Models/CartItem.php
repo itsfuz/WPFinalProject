@@ -10,7 +10,8 @@ class CartItem extends Model
     use HasFactory;
 
     protected $fillable = [
-        'users_id'
+        'users_id',
+
     ];
 
     public function carts(){
