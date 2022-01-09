@@ -24,7 +24,7 @@
             @foreach ($furnitures as $f)
             <div class="col-5" style="width:300px; height:500px">
                 <div class="card  bg-light mb-3" style="border-style:solid; align-items:center">
-                    <img class="card-img-top" src=" {{ asset('storage/'.$f->image)}}" alt="Furniture Image" style="padding: 2px">
+                    <img class="card-img-top" src="{{ Storage::url($f->image) }}" alt="Furniture Image" style="padding: 2px">
                     <div style="padding: 20px">
                         <br>
                         <p>Name: {{$f->name}}</p>
