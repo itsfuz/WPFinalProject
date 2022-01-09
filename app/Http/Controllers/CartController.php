@@ -12,35 +12,47 @@ class CartController extends Controller
 
     public function viewCart(){
 
-
-
         return view('cart');
     }
 
     public function addToCart($id){
 
-        $cartID = CartItem::where('users_id', auth()->user()->id)->get();
+        $userID = auth()->user()->id;
 
+        $cartID = CartItem::where('users_id', $userID)->get();
 
-        $cartID = new CartItem();
-
-            $cartID->users_id = auth()->user()->id;
+        if($userID == $cartID){
 
             $itemID = Furniture::find($id);
 
-            $cartID->furniture_id = $itemID;
+            $cartID->furniture_id = $id;
 
             $cartID->quantity = 1;
 
             $cartID->total_price = ($itemID->price*$cartID->quantity);
 
             $cartID->save();
-
-        if($cartID == null){
-
-
-
         }
+        else{
+
+            $cartID = new CartItem();
+
+            $cartID->users_id = auth()->user()->id;
+
+            $itemID = Furniture::find($id);
+
+            $cartID->furniture_id = $id;
+
+            $cartID->quantity = 1;
+
+            $cartID->total_price = ($itemID->price*$cartID->quantity);
+
+            $cartID->save();
+        }
+
+
+
+
         // else{
 
         //     $itemID = Furniture::find($id);
