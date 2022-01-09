@@ -21,7 +21,10 @@ class CartController extends Controller
             $TotalCost = $TotalCost + $item->total_price;
         }
 
-        return view('/cart', compact('CartItems', $CartItems))->with('TotalCost', $TotalCost)->with('furnitures', $furnitures);
+        return view('/cart', compact('CartItems', $CartItems))
+        ->with('TotalCost', $TotalCost)
+        ->with('furnitures', $furnitures)
+        ->with('notification', 'Item Added to Cart!');
     }
 
     public function addToCart($id){
@@ -59,7 +62,7 @@ class CartController extends Controller
             $cart->save();
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('notification', 'Item Added to Cart!');
     }
 
     public function addQuantity($id){

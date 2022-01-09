@@ -2,6 +2,15 @@
 
 
 @section('content')
+
+@if (session()->has('notification'))
+    <div class="box" style="display:flex; align-item:center; justify-content:center">
+        <div class="alert alert-secondary" role="alert" style="width:500px; text-align:center">
+            {{ session('notification') }}
+        </div>
+    </div>
+@endif
+
 @auth
 
     @if (Auth::check())
