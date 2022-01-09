@@ -28,8 +28,8 @@
                         <th scope="col"> {{$item->quantity}}</th>
                         <th scope="col"> {{$item->total_price}}</th>
                         <th scope="col">
-                            <button type="button">-</button>
-                            <button type="button">+</button>
+                           <a href="/minusQuantity/{{$furniture->id}}"><button type="button">-</button></a>
+                            <a href="/addQuantity/{{$furniture->id}}"><button type="button">+</button></a>
                         </th>
 
 

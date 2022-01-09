@@ -67,6 +67,33 @@ class CartController extends Controller
 
     public function addQuantity($id){
 
+        $user = Auth()->user()->id;
 
+        $SelectedItem = Cart::where('users_id', $user)->where('furniture_id', $id)->first();
+
+        $SelectedItem->quantity = $SelectedItem->quantity + 1;
+
+        $SelectedItem->save();
+
+        return redirect()->back();
+
+    }
+
+    public function minusQuantity($id){
+
+        $user = Auth()->user()->id;
+
+        $SelectedItem = Cart::where('users_id', $user)->where('furniture_id', $id)->first();
+
+        if($SelectedItem->quantity - 1 == 0){
+
+            $SelectedItem->delete();
+        }
+        else{
+            $SelectedItem->quantity = $SelectedItem->quantity - 1;
+            $SelectedItem->save();
+        }
+
+        return redirect()->back();
     }
 }
