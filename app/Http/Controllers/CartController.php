@@ -10,9 +10,18 @@ class CartController extends Controller
 {
     //
 
-    public function viewCart(){
+    public function viewCart($id){
 
-        return view('cart');
+        $CartItems = Cart::where('users_id', $id)->get();
+
+        $furnitures = Furniture::all();
+        $TotalCost = 0;
+        foreach($CartItems as $item){
+
+            $TotalCost = $TotalCost + $item->total_price;
+        }
+
+        return view('/cart', compact('CartItems', $CartItems))->with('TotalCost', $TotalCost)->with('furnitures', $furnitures);
     }
 
     public function addToCart($id){

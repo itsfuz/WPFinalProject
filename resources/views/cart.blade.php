@@ -15,19 +15,31 @@
       </tr>
     </thead>
     <tbody>
-        @foreach ($furnitures as $f)
-        <tr>
-            <th scope="col"> {{$f->iamge}}</th>
-            <th scope="col"> {{$f->name}}</th>
-            <th scope="col"> {{$f->price}}</th>
-            <th scope="col"> </th>
-            <th scope="col"> price x quantity </th>
-            {{-- button --}}
-            <th scope="col"> </th>
-        </tr>
+
+        @foreach ($CartItems as $item)
+            @foreach ($furnitures as $furniture)
+
+                @if ($item->furniture_id == $furniture->id)
+                <tr>
+                    <th scope="col"><img src="{{Storage::url($furniture->image)}}" alt="{{$furniture->name}}" style="padding: 2px; width:270px;"></th>
+                    <th scope="col"> {{$furniture->name}}</th>
+                    <th scope="col"> {{$furniture->price}}</th>
+                    <th scope="col"> {{$item->quantity}}</th>
+                    <th scope="col"> {{$item->total_price}}</th>
+                    <th scope="col"> </th>
+
+                    {{-- button --}}
+                    <th scope="col"> </th>
+                </tr>
+                @endif
+
+            @endforeach
+
         @endforeach
 
 
   </table>
+
+  <?php echo $TotalCost ?>
 
 @endsection

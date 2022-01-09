@@ -52,7 +52,7 @@
                             <a class="nav-link" style="color:white" href="/profile">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color:white" href="/logout">Cart</a>
+                            <a class="nav-link" style="color:white" href="/viewCart/{{auth()->user()->id}}">Cart</a>
                         </li>
 
                         @elseif (auth()->user()->role == 'admin')
