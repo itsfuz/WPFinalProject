@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    public function cart(){
-        return view('cart');
+
+    public function createTransaction($payment_method, $card_number){
+
+
     }
 }
