@@ -94,11 +94,10 @@ class FurnitureController extends Controller
     public function deleteFurniture($id){
         $furnitures = Furniture::find($id);
         if($furnitures !=null) {
-            Storage::delete('public/storage/images'.$furnitures->image);
+            Storage::delete('public/images'.$furnitures->image);
             $furnitures-> delete();
         }
-        // Furniture::destroy($id->id);
-        return redirect('view')->with('success','Post has been deleted');
+        return redirect()->back();
     }
 
     public function furnitureDetails($id){
