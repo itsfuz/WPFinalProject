@@ -19,9 +19,9 @@ class CartController extends Controller
 
     public function addToCart($id){
 
-        $cartID = CartItem::find(auth()->user()->id);
+        $cartID = CartItem::where('users_id', auth()->user()->id);
 
-
+        get($cartID);
 
         if($cartID == null){
 
@@ -31,13 +31,11 @@ class CartController extends Controller
 
             $itemID = Furniture::find($id);
 
-            $cartID->furnitures_id = $itemID;
+            $cartID->furniture_id = $itemID;
 
             $cartID->quantity = 1;
 
             $cartID->total_price = ($itemID->price*$cartID->quantity);
-
-            dd($cartID);
 
             $cartID->save();
 
@@ -51,8 +49,6 @@ class CartController extends Controller
             $cartID->quantity = 1;
 
             $cartID->total_price = ($itemID->price*$cartID->quantity);
-
-            dd($cartID);
 
             $cartID->save();
         }

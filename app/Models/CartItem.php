@@ -17,11 +17,6 @@ class CartItem extends Model
 
     ];
 
-    public function carts(){
-
-        return $this->belongsTo(Cart::class);
-    }
-
     public function users(){
 
         return $this->hasOne(User::class);
