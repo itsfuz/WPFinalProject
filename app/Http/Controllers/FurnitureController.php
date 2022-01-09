@@ -78,10 +78,12 @@ class FurnitureController extends Controller
         $imageName = time().'.'.$file->getClientOriginalExtension();
         Storage::putFileAs('public/images',$file,$imageName);
         $furnitures -> type = $request->type;
-        $furnitures->image = $imageName;
+
         Storage::delete('public/'.$furnitures->image);
 
         $request->image->move(public_path('images'), $imageName);
+
+        $furnitures->image = 'images/'.$imageName;
 
         $furnitures->save();
 
