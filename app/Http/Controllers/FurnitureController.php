@@ -55,7 +55,7 @@ class FurnitureController extends Controller
 
         $furnitures->save();
 
-        return redirect('/');
+        return redirect('/')->with('notification', 'New Item has been Added!');;
     }
 
     public function updateFurniturePage($furnitures){
@@ -64,7 +64,7 @@ class FurnitureController extends Controller
 
         if(auth()->user()->role == 'admin'){
             $furnitures = Furniture::find($furnitures);
-            return view('updateFurniture', compact('furnitures'));
+            return view('updateFurniture', compact('furnitures'))->with('notification', 'New Item has been Added!');;
         }
     }
 
@@ -87,7 +87,7 @@ class FurnitureController extends Controller
 
         $furnitures->save();
 
-        return redirect('home');
+        return redirect('home')->with('notification', 'Item has been Updated!');;
 
     }
 
@@ -105,7 +105,7 @@ class FurnitureController extends Controller
         if ($furnitures==null) {
             return redirect('/');
         }
-        return view('furnitureDetails',['f'=>$furnitures]);
+        return view('furnitureDetails',['f'=>$furnitures])->with('notification', 'Item has been Deleted!');
     }
 
 }
