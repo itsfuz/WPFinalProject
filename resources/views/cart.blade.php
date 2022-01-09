@@ -27,10 +27,12 @@
                         <th scope="col"> {{$furniture->price}}</th>
                         <th scope="col"> {{$item->quantity}}</th>
                         <th scope="col"> {{$item->total_price}}</th>
-                        <th scope="col"> </th>
+                        <th scope="col">
+                            <button type="button">-</button>
+                            <button type="button">+</button>
+                        </th>
 
-                        {{-- button --}}
-                        <th scope="col"> </th>
+
                     </tr>
                     @endif
 
