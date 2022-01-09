@@ -38,7 +38,6 @@
                 @elseif(auth()->user()->role == 'admin')
                     <div class="row">
                         <div class="column">
-                            <form action=""></form>
                                 <a href="{{url('updateFurniture/'.$f->id)}}"><button type="submit" class="btn btn-success">Update</button></a>
                         </div>
 

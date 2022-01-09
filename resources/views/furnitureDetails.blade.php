@@ -52,14 +52,10 @@
                     </form>
                 </div>
                 <div class="col-md-auto">
-                    <form action="">
-                        <button class="btn btn-success" type="submit">Update</button>
-                    </form>
+                        <a href="{{url('updateFurniture/'.$f->id)}}"><button class="btn btn-success" type="submit">Update</button></a>
                 </div>
                 <div class="col-md-auto">
-                    <form action="">
                         <button class="btn btn-danger" type="submit">Delete</button>
-                    </form>
                 </div>
             </div>
 

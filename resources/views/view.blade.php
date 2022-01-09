@@ -42,21 +42,11 @@
                     @elseif(auth()->user()->role == 'admin')
                         <div class="row">
                             <div class="column">
-                                {{-- {{route('update', $f->id)}} --}}
-                                <form action="" method="POST">
-                                    @method('update')
-                                    @csrf
-                                    <button class="btn btn-success">Update</button>
-                                </form>
+                                    <a href="{{url('updateFurniture/'.$f->id)}}"><button class="btn btn-success" type="submit">Update</button></a>
                             </div>
 
                             <div class="column">
-                                {{-- {{route('deleteFurniture', $f->id)}} --}}
-                                <form action="" method="POST">
-                                    @method('delete')
-                                    @csrf
                                     <button class="btn btn-danger">Delete</button>
-                                </form>
                             </div>
                         </div>
 
