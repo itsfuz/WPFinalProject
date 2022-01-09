@@ -19,9 +19,9 @@ class CartController extends Controller
 
     public function addToCart($id){
 
-        $cartID = CartItem::where('users_id', auth()->user()->id);
+        $cartID = CartItem::where('users_id', auth()->user()->id)->get();
 
-        get($cartID);
+        dd($cartID);
 
         if($cartID == null){
 
@@ -37,7 +37,7 @@ class CartController extends Controller
 
             $cartID->total_price = ($itemID->price*$cartID->quantity);
 
-            $cartID->save();
+            // $cartID->save();
 
         }
         else{
@@ -50,7 +50,7 @@ class CartController extends Controller
 
             $cartID->total_price = ($itemID->price*$cartID->quantity);
 
-            $cartID->save();
+            // $cartID->save();
         }
 
         return redirect()->back();
