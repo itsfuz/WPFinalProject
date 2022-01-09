@@ -21,11 +21,8 @@ class CartController extends Controller
 
         $cartID = CartItem::where('users_id', auth()->user()->id)->get();
 
-        dd($cartID);
 
-        if($cartID == null){
-
-            $cartID = new CartItem();
+        $cartID = new CartItem();
 
             $cartID->users_id = auth()->user()->id;
 
@@ -37,21 +34,25 @@ class CartController extends Controller
 
             $cartID->total_price = ($itemID->price*$cartID->quantity);
 
-            // $cartID->save();
+            $cartID->save();
+
+        if($cartID == null){
+
+
 
         }
-        else{
+        // else{
 
-            $itemID = Furniture::find($id);
+        //     $itemID = Furniture::find($id);
 
-            $cartID->furnitures_id = $itemID;
+        //     $cartID->furnitures_id = $itemID;
 
-            $cartID->quantity = 1;
+        //     $cartID->quantity = 1;
 
-            $cartID->total_price = ($itemID->price*$cartID->quantity);
+        //     $cartID->total_price = ($itemID->price*$cartID->quantity);
 
-            // $cartID->save();
-        }
+        //     // $cartID->save();
+        // }
 
         return redirect()->back();
     }
