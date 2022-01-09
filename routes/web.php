@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\FurnitureController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -45,5 +46,7 @@ Route::post('/updateF/{id}', [FurnitureController::class, 'updateFurniture']);
 Route::post('/deleteFurniture', [FurnitureController::class, 'deleteFurniture']);
 
 Route::get('/furnitureDetails/{id}', [FurnitureController::class, 'furnitureDetails']);
+
+Route::post('/addToCart/{id}', [CartController::class, 'addToCart']);
 
 Route::get('/cart', [TransactionController::class, 'cart']);

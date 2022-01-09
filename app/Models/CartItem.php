@@ -5,31 +5,30 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class CartItem extends Model
 {
     use HasFactory;
 
-    protected $table = "transactions";
     protected $fillable = [
         'users_id',
+        'furnitures_id',
+        'quantity',
+        'total_price'
 
     ];
 
-    public function transaction_details(){
+    public function carts(){
 
-        return $this->hasOne(TransactionDetail::class);
-
+        return $this->belongsTo(Cart::class);
     }
 
     public function users(){
 
-        return $this->belongsTo(User::class);
-
+        return $this->hasOne(User::class);
     }
 
     public function furnitures(){
 
-        return $this->belongsTo(Furniture::class);
-
+        return $this->hasMany(Furniture::class);
     }
 }

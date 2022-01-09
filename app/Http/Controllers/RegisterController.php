@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
+use App\Models\CartItem;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -30,7 +32,7 @@ class RegisterController extends Controller
         $validator = Validator::make($request->all(), $rules);
         if($validator->fails()){
              return back()->withErrors($validator);
-         }
+        }
 
         $user = User::create(request(['full_name', 'email', 'password', 'address', 'gender','member']));
 
