@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CartItem;
+use App\Models\Cart;
 use App\Models\Furniture;
 use Illuminate\Http\Request;
 
@@ -17,54 +17,38 @@ class CartController extends Controller
 
     public function addToCart($id){
 
-        $userID = auth()->user()->id;
 
-        $cartID = CartItem::where('users_id', $userID)->get();
+        $user = auth()->user()->id;
 
-        if($userID == $cartID){
+        //mengecek item yang dipilih didalam cart
+        $findItem = Cart::where('users_id', $user)->where('furniture_id', $id)->first();
 
-            $itemID = Furniture::find($id);
+        if($findItem){
+            //jika ada item yang sama didalam cart
+            $itemPrice = Furniture::find($id)->price;
 
-            $cartID->furniture_id = $id;
+            $findItem->quantity = $findItem->quantity + 1;
 
-            $cartID->quantity = 1;
+            $findItem->total_price = $findItem->quantity*$itemPrice;
 
-            $cartID->total_price = ($itemID->price*$cartID->quantity);
-
-            $cartID->save();
+            $findItem->save();
         }
         else{
+            //jika tidak ada item yang sama didalam cart
+            $cart = new Cart();
 
-            $cartID = new CartItem();
+            $cart->users_id = $user;
 
-            $cartID->users_id = auth()->user()->id;
+            $item = Furniture::find($id);
 
-            $itemID = Furniture::find($id);
+            $cart->furniture_id = $id;
 
-            $cartID->furniture_id = $id;
+            $cart->quantity = 1;
 
-            $cartID->quantity = 1;
+            $cart->total_price = ($item->price*$cart->quantity);
 
-            $cartID->total_price = ($itemID->price*$cartID->quantity);
-
-            $cartID->save();
+            $cart->save();
         }
-
-
-
-
-        // else{
-
-        //     $itemID = Furniture::find($id);
-
-        //     $cartID->furnitures_id = $itemID;
-
-        //     $cartID->quantity = 1;
-
-        //     $cartID->total_price = ($itemID->price*$cartID->quantity);
-
-        //     // $cartID->save();
-        // }
 
         return redirect()->back();
     }
