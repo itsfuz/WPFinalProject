@@ -55,7 +55,11 @@
                         <a href="{{url('updateFurniture/'.$f->id)}}"><button class="btn btn-success" type="submit">Update</button></a>
                 </div>
                 <div class="col-md-auto">
-                        <button class="btn btn-danger" type="submit">Delete</button>
+                    <form action="/deleteFurniture/{{$f->id}}" method="POST">
+                        {{method_field('delete')}}
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                 </div>
             </div>
 

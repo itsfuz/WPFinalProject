@@ -47,7 +47,11 @@
                             </div>
 
                             <div class="column">
-                                    <button class="btn btn-danger">Delete</button>
+                                <form action="/deleteFurniture/{{$f->id}}" method="POST">
+                                    {{method_field('delete')}}
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
                             </div>
                         </div>
 
