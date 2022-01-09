@@ -34,8 +34,9 @@
                         @if(auth()->user()->role == 'member')
                         <div class="row">
                             <div class="column">
-                                <form action="" style="width:100px">
-                                    <a href="/cart"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
+                                <form action="/addToCart/{{$f->id}}" style="width:100px" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary" style="width:150px">Add to Cart</button>
                                 </form>
                             </div>
                         </div>
