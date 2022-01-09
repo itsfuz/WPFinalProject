@@ -58,43 +58,44 @@ class FurnitureController extends Controller
         return redirect('/');
     }
 
-    public function updateFurniturePage(){
+    public function updateFurniturePage($furnitures){
 
         $this->middleware('auth');
 
         if(auth()->user()->role == 'admin'){
-
-            return view('updateFurniture');
+            $furnitures = Furniture::find($furnitures);
+            return view('updateFurniture', compact('furnitures'));
         }
     }
 
-    public function updateFurniture(Request $request){
+    public function updateFurniture(Request $request,$id){
 
-        $furnitures = Furniture::find($request->id);
-
+        $furnitures = Furniture::find($id);
         $furnitures -> name = $request-> name;
         $furnitures -> price = $request-> price;
         $furnitures -> color = $request->color;
         $file = $request->file('image');
         $imageName = time().'.'.$file->getClientOriginalExtension();
-        Storage::putFileAs('public/storage/images',$file,$imageName);
+        Storage::putFileAs('public/images',$file,$imageName);
         $furnitures -> type = $request->type;
-
-        Storage::delete('public/storage/'.$furnitures->image);
+        $furnitures->image = $imageName;
+        Storage::delete('public/'.$furnitures->image);
 
         $request->image->move(public_path('images'), $imageName);
+
         $furnitures->save();
 
-        return redirect()->back();
+        return redirect('home');
 
     }
 
     public function deleteFurniture($id){
         $furnitures = Furniture::find($id);
         if($furnitures !=null) {
-            Storage::delete('public/'.$furnitures->image);
+            Storage::delete('public/storage/images'.$furnitures->image);
             $furnitures-> delete();
         }
+        // Furniture::destroy($id->id);
         return redirect('view')->with('success','Post has been deleted');
     }
 

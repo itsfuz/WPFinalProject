@@ -28,21 +28,21 @@ class FurnitureSeeder extends Seeder
                 'price' => 1000000,
                 'type' => 'bed',
                 'color' => 'white',
-                'image' => '1'
+                'image' => '2'
             ],
             [
                 'name' => 'Antlop',
                 'price' => 200000,
                 'type' => 'chair',
                 'color' => 'white',
-                'image' => '1'
+                'image' => '3'
             ],
             [
                 'name' => 'Mammut',
                 'price' => 85000,
                 'type' => 'chair',
                 'color' => 'white',
-                'image' => '1'
+                'image' => '4'
             ]
             ];
 
