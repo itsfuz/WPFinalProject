@@ -39,8 +39,9 @@
                     </form>
                 </div>
                 <div class="col-sm-2">
-                    <form action="">
-                        <a href="/cart"> <button type="button" class="btn btn-primary">Add to Cart</button></a>
+                    <form action="/addToCart/{{$f->id}}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
                     </form>
                 </div>
             </div>

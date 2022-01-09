@@ -47,6 +47,6 @@ Route::delete('/deleteFurniture/{id}', [FurnitureController::class, 'deleteFurni
 
 Route::get('/furnitureDetails/{id}', [FurnitureController::class, 'furnitureDetails']);
 
+
 Route::post('/addToCart/{id}', [CartController::class, 'addToCart']);
 
-Route::get('/cart', [TransactionController::class, 'cart']);

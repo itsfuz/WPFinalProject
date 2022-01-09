@@ -30,8 +30,10 @@
                 @if(auth()->user()->role == 'member')
                     <div class="row">
                         <div class="column">
-                            <form action="POST">
-                                <a href="/addToCart/{{$f->id}}"><button type="button" class="btn btn-primary" style="width: 150px">Add to Cart</button></a>
+
+                            <form action="/addToCart/{{$f->id}}" method="POST">
+                                @csrf
+                                <button type="sumbit" class="btn btn-primary" style="width: 150px">Add to Cart</button>
                             </form>
                         </div>
                     </div>
