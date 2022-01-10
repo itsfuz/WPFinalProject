@@ -21,10 +21,13 @@
 
         @endif
         @else
-        <div class="input-group" style="padding:50px; justify-content:right;">
-            <input type="search" class="form-control rounded" placeholder=" Search by Furniture's name">
-            <button type="button" class="btn btn-outline-primary">Search</button>
-          </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <input type="search" class="form-control rounded" placeholder=" Search by Furniture's name">
+                <button type="button" class="btn btn-outline-primary">Search</button>
+              </div>
+        </div>
+        <div class="w-100 d-none d-md-block"></div>
         @endauth
           <br>
           <br>

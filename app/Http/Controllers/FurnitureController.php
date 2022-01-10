@@ -32,7 +32,7 @@ class FurnitureController extends Controller
     public function addFurniture(Request $request){
 
         $rules = [
-            'name' => 'required|max:15',
+            'name' => 'required|unique|max:15',
             'price' => 'required|numeric|min:5000|max:10000000',
             'type' => 'required',
             'color' => 'required',
@@ -69,6 +69,19 @@ class FurnitureController extends Controller
     }
 
     public function updateFurniture(Request $request,$id){
+
+        $rules = [
+            'name' => 'required|unique|max:15',
+            'price' => 'required|numeric|min:5000|max:10000000',
+            'type' => 'required',
+            'color' => 'required',
+            'image' => 'required|mimes:jpg,png'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+        if($validator->fails()){
+            return back()->withErrors($validator);
+        }
 
         $furnitures = Furniture::find($id);
         $furnitures -> name = $request-> name;
