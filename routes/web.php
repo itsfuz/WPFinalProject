@@ -32,7 +32,7 @@ Route::post('/registerUser', [RegisterController::class, 'store']);
 Route::post('/login/user', [LoginController::class, 'loginUser']);
 Route::get('/logout',[LoginController::class,'logout']);
 
-Route::get('/profile', [UserController::class, 'profilePage']); //work in progress
+Route::get('/profile', [UserController::class, 'profilePage']);
 Route::get('/updateProfile', [UserController::class, 'updateProfilePage']);
 Route::post('/updateProfile', [UserController::class, 'updateProfile']);
 
