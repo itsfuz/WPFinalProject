@@ -82,11 +82,13 @@ class TransactionController extends Controller
 
             $TransactionDetails = TransactionDetail::all();
             $users = User::all();
+            $furnitures = Furniture::all();
 
 
-            return redirect('transactionHistory')
+            return view('history')
             ->with('Transactions', $Transactions)
             ->with('TransactionDetails', $TransactionDetails)
+            ->with('furnitures', $furnitures)
             ->with('users', $users);
         }
 
@@ -103,7 +105,7 @@ class TransactionController extends Controller
 
         $furnitures = Furniture::all();
 
-        return redirect('transactionHistory')
+        return view('history')
         ->with('Transactions', $Transactions)
         ->with('TransactionDetails', $TransactionDetails)
         ->with('furnitures', $furnitures);
