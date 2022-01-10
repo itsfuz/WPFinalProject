@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
-use App\Models\CartItem;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -40,7 +39,7 @@ class RegisterController extends Controller
 
         $user->save();
 
-        return redirect('/')->with('notification', 'Account has been Created!');;
+        return view('login-page')->with('notification', 'Account has been Created!');;
 
     }
 }

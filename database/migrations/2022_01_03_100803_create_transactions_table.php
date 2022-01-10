@@ -20,7 +20,6 @@ class CreateTransactionsTable extends Migration
             $table->date('transaction_date');
             $table->string('method');
             $table->string('card_number');
-            $table->string('users_name');
             $table->timestamps();
         });
     }

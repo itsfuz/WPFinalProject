@@ -12,6 +12,8 @@ class Transaction extends Model
     protected $table = "transactions";
     protected $fillable = [
         'users_id',
+        'method',
+        'card_number'
 
     ];
 
@@ -27,9 +29,4 @@ class Transaction extends Model
 
     }
 
-    public function furnitures(){
-
-        return $this->belongsTo(Furniture::class);
-
-    }
 }

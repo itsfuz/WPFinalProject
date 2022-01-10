@@ -25,9 +25,10 @@ use Illuminate\Support\Facades\URL;
 Route::get('/', [HomeController::class, 'viewFurniture']);
 Route::get('/home', [HomeController::class, 'viewFurniture']);
 Route::get('/login', [HomeController::class, 'toLogin']);
-Route::get('/register', [RegisterController::class, 'index']);
 
+Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/registerUser', [RegisterController::class, 'store']);
+
 Route::post('/login/user', [LoginController::class, 'loginUser']);
 Route::get('/logout',[LoginController::class,'logout']);
 
@@ -36,20 +37,18 @@ Route::get('/updateProfile', [UserController::class, 'updateProfilePage']);
 Route::post('/updateProfile', [UserController::class, 'updateProfile']);
 
 Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture']);
-
 Route::get('/addFurniture', [FurnitureController::class, 'addFurniturePage']);
 Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']);
-
 Route::get('/updateFurniture/{id}', [FurnitureController::class, 'updateFurniturePage']);
 Route::post('/updateF/{id}', [FurnitureController::class, 'updateFurniture']);
-
 Route::delete('/deleteFurniture/{id}', [FurnitureController::class, 'deleteFurniture']);
-
 Route::get('/furnitureDetails/{id}', [FurnitureController::class, 'furnitureDetails']);
 
 Route::get('/viewCart/{id}', [CartController::class, 'viewCart']);
 Route::post('/addToCart/{id}', [CartController::class, 'addToCart']);
-Route::get('/checkOut/{id}', [TransactionController::class, 'checkOut']);
-
 Route::get('addQuantity/{id}', [CartController::class, 'addQuantity']);
 Route::get('minusQuantity/{id}', [CartController::class, 'minusQuantity']);
+
+Route::get('/checkOut/{id}', [TransactionController::class, 'GoToCheckOut']);
+Route::post('/getTransaction/{id}',[TransactionController::class, 'createTransaction']);
+

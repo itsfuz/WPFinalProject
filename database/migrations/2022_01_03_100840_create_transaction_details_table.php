@@ -22,7 +22,7 @@ class CreateTransactionDetailsTable extends Migration
             $table->integer('price');
             $table->integer('quantity');
             $table->integer('total_furniture_price');
-            $table->integer('total_price');
+
         });
     }
 
