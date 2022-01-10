@@ -68,4 +68,15 @@ class TransactionController extends Controller
 
     }
 
+    public function adminTransactionHistory(){
+
+        $Transactions = Transaction::all();
+
+        $TransactionDetails = TransactionDetail::all();
+
+        return redirect('transactionHistory')
+        ->with('Transactions', $Transactions)
+        ->with('TransactionDetails', $TransactionDetails);
+    }
+
 }
