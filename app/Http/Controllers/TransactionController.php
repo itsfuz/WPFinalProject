@@ -52,6 +52,16 @@ class TransactionController extends Controller
 
             $TransactionDetail->furnitures_id = $item->furniture_id;
 
+            $furniture = Furniture::find($item->furniture_id);
+
+            $TransactionDetail->furniture_name = $furniture->name;
+
+            $TransactionDetail->price = $furniture->price;
+
+            $TransactionDetail->quantity = $item->quantity;
+
+            $TransactionDetail->total_price = $furniture->price*$item->quantity;
+
             $TransactionDetail->save();
 
         }
@@ -82,13 +92,12 @@ class TransactionController extends Controller
 
             $TransactionDetails = TransactionDetail::all();
             $users = User::all();
-            $furnitures = Furniture::all();
+
 
 
             return view('history')
             ->with('Transactions', $Transactions)
             ->with('TransactionDetails', $TransactionDetails)
-            ->with('furnitures', $furnitures)
             ->with('users', $users);
         }
 
@@ -107,8 +116,7 @@ class TransactionController extends Controller
 
         return view('history')
         ->with('Transactions', $Transactions)
-        ->with('TransactionDetails', $TransactionDetails)
-        ->with('furnitures', $furnitures);
+        ->with('TransactionDetails', $TransactionDetails);
     }
 
 }

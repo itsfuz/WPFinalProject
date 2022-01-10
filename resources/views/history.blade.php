@@ -5,24 +5,12 @@
 <h1>Transaction History</h1>
 <div class="container" style="padding: 30px; text-align:center">
 
-@auth
-
-    @if (Auth::check())
-        <br>
-        <h1>Welcome, {{auth()->User()->full_name}}</h1><br>
-        <h1>to JH Furniture</h1>
-
-    @endif
-    @else
-        <br>
-        <h1>Welcome to JH Furniture</h1>
-@endauth
 
    <div class="card">
     <table class="table">
-        <thead>
+            <thead>
             @foreach ($Transactions as $Transaction)
-                {{$TotalCost = 0}}
+                <?php $TotalCost = 0 ?>
                 <h6>Transaction id: {{$Transaction->id}}</h6>
                 <h6>Transaction Date:{{$Transaction->transaction_date}}</h6>
                 <h6>Method:{{$Transaction->payment_method}}</h6>
@@ -40,37 +28,34 @@
                     <th scope="col">Quantity</th>
                     <th scope="col">Total Price for Each Furniture</th>
                 </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
 
                 @foreach ($TransactionDetails as $TransactionDetail)
 
                     @if($Transaction->id == $TransactionDetail->transactions_id)
-                        @foreach ($furnitures as $furniture)
-
-                            @if ($TransactionDetail->furnitures_id == $furniture->id)
-                                <tr>
-                                    <th scope="row">{{$furniture->name}}</th>
-                                    <td>{{$furniture->price}}</td>
-                                    <td>{{$furniture->quantity}}</td>
-                                    <td>{{$furniture->price*$furniture->quantity}}</td>
-                                </tr>
-                                {{$TotalCost = $TotalCost + ($furniture->price*$furniture->quantity)}}
-                            @endif
-
-                        @endforeach
 
                         <tr>
-                            <td colspan="2">Total Price</td>
-                            <td>{{$TotalCost}}</td>
+                            <th scope="row">{{$TransactionDetail->name}}</th>
+                            <td>{{$TransactionDetail->price}}</td>
+                            <td>{{$TransactionDetail->quantity}}</td>
+                            <td>{{$TransactionDetail->price*$TransactionDetail->quantity}}</td>
                         </tr>
+
+                        <?php $TotalCost = $TotalCost + ($TransactionDetail->price*$TransactionDetail->quantity) ?>
 
                     @endif
 
-        </tbody>
+                    <tr>
+                        <td colspan="2">Total Price</td>
+                        <td>{{$TotalCost}}</td>
+                    </tr>
                 @endforeach
-
             @endforeach
+        </tbody>
+
+
+
       </table>
 
    </div>

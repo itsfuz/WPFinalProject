@@ -19,6 +19,10 @@ class CreateTransactionDetailsTable extends Migration
             $table->foreign('transactions_id')->references('id')->on('transactions')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('furnitures_id');
             $table->foreign('furnitures_id')->references('id')->on('furnitures')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('furniture_name');
+            $table->integer('price');
+            $table->integer('quantity');
+            $table->integer('total_price');
             $table->timestamps();
         });
     }
