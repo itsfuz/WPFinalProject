@@ -48,7 +48,7 @@
 
 
                 @endforeach
-                <br>
+
                 <tr>
                     <td colspan="2">Total Price</td>
                     <td>{{$TotalCost}}</td>
