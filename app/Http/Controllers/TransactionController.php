@@ -66,6 +66,7 @@ class TransactionController extends Controller
 
         }
 
+        //remove item from cart
         $ItemToRemove = Cart::where('users_id', $userID)->first();
 
         while($ItemToRemove != null){

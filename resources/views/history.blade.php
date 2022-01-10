@@ -36,7 +36,7 @@
                     @if($Transaction->id == $TransactionDetail->transactions_id)
 
                         <tr>
-                            <th scope="row">{{$TransactionDetail->name}}</th>
+                            <th scope="row">{{$TransactionDetail->furniture_name}}</th>
                             <td>{{$TransactionDetail->price}}</td>
                             <td>{{$TransactionDetail->quantity}}</td>
                             <td>{{$TransactionDetail->price*$TransactionDetail->quantity}}</td>
@@ -46,11 +46,14 @@
 
                     @endif
 
-                    <tr>
-                        <td colspan="2">Total Price</td>
-                        <td>{{$TotalCost}}</td>
-                    </tr>
+
                 @endforeach
+                <br>
+                <tr>
+                    <td colspan="2">Total Price</td>
+                    <td>{{$TotalCost}}</td>
+                </tr>
+
             @endforeach
         </tbody>
 
