@@ -18,7 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->unsignedBigInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users')->onUpdates('cascade')->onDelete('cascade');
             $table->date('transaction_date');
-            $table->string('method');
+            $table->string('payment_method');
             $table->string('card_number');
             $table->timestamps();
         });

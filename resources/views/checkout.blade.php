@@ -36,28 +36,28 @@
       </table>
 
       <br>
-        <div style="text-align: center; font-size:20px">
-            <p><b>Total:</b> Rp.<?php echo $TotalCost ?></p>
-        </div>
-        <form action="/getTransaction" method="post">
-            <div class="row align-items-center">
-                <div class="col-md-4 @error('paymentMethod') is-invalid @enderror" style="text-align: center">
-                    <label for="paymentMethod" class="col-md-4 col-form-label text-md-end"><b>{{ __('Payment Method') }}</b>:</label>
+    <div style="text-align: center; font-size:20px">
+        <p><b>Total:</b> Rp.<?php echo $TotalCost ?></p>
+    </div>
+    <form action="/getTransaction" method="POST">
+        @csrf
+        <div class="row align-items-center">
+            <div class="col-md-4 @error('payment_method') is-invalid @enderror" style="text-align: center">
+                <label for="payment_method" class="col-md-4 col-form-label text-md-end"><b>{{ __('Payment Method') }}</b>:</label>
+            </div>
+            <br>
+            <div class="col-md-2">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="payment_method" id="payment_method" value="Credit">
+                    <label class="form-check-label" for="payment_method">Credit</label>
                 </div>
-                <br>
-                <div class="col-md-2">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod" value="Credit">
-                        <label class="form-check-label" for="gender">Credit</label>
-                    </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="payment_method" id="payment_method" value="Debit">
+                    <label class="form-check-label" for="payment_method">Debit</label>                    </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod" value="Debit">
-                        <label class="form-check-label" for="gender">Debit</label>
-                    </div>
-                </div>
-                @error('gender')
+                @error('payment_method')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -66,16 +66,15 @@
             <br>
             <div class="row">
                 <div class="col-md-4">
-                    <p><b>Card Number</b></p>
+                    <label class="form-check-label" for="card_number"><b>Card Number:</b></label>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="full_name" class="form-control @error('full_name') is-invalid @enderror" id="full_name">
+                    <input type="text" name="card_number" class="form-control @error('card_number') is-invalid @enderror" id="card_number">
                 </div>
             </div>
-
             <br><br>
             <button type="submit" class="btn btn-primary">Checkout</button>
-        </form>
+    </form>
 </div>
 
 

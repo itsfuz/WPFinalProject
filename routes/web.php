@@ -50,5 +50,5 @@ Route::get('addQuantity/{id}', [CartController::class, 'addQuantity']);
 Route::get('minusQuantity/{id}', [CartController::class, 'minusQuantity']);
 
 Route::get('/checkOut/{id}', [TransactionController::class, 'GoToCheckOut']);
-Route::post('/getTransaction/{id}',[TransactionController::class, 'createTransaction']);
+Route::post('/getTransaction',[TransactionController::class, 'createTransaction']);
 

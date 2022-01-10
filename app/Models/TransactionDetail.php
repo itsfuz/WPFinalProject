@@ -10,10 +10,8 @@ class TransactionDetail extends Model
     use HasFactory;
 
     protected $fillable = [
-        'users_id',
-        'method',
-        'card_number'
-
+        'transaction_id',
+        'furniture_id'
     ];
 
     public function furnitures(){

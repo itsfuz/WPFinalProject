@@ -35,15 +35,36 @@ class TransactionController extends Controller
         $Transaction = new Transaction();
 
         $Transaction->users_id = $userID;
-        $Transaction->method = $request->method;
-        $Transaction->date = date('d');
+        $Transaction->payment_method = $request->payment_method;
+        $Transaction->transaction_date = date('Y-m-d');
         $Transaction->card_number = $request->card_number;
 
         $Transaction->save();
 
-        $TransactionDetail = new TransactionDetail();
+        $TDItems = Cart::where('users_id', $userID)->get();
 
-        $TransactionDetail->transaction_id = $Transaction->id;
+        foreach($TDItems as $item){
+
+            $TransactionDetail = new TransactionDetail();
+
+            $TransactionDetail->transactions_id = $Transaction->id;
+
+            $TransactionDetail->furnitures_id = $item->furniture_id;
+
+            $TransactionDetail->save();
+
+        }
+
+        $ItemToRemove = Cart::where('users_id', $userID)->first();
+
+        while($ItemToRemove != null){
+
+            $ItemToRemove->delete();
+
+            $ItemToRemove = Cart::where('users_id', $userID)->first();
+        }
+
+        return redirect('/')->with('notification', 'Purchase Complete!');;
 
     }
 
