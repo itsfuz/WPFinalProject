@@ -71,7 +71,7 @@ class FurnitureController extends Controller
     public function updateFurniture(Request $request,$id){
 
         $rules = [
-            'name' => 'required|unique|max:15',
+            'name' => 'required|unique:furnitures|max:15',
             'price' => 'required|numeric|min:5000|max:10000000',
             'type' => 'required',
             'color' => 'required',
