@@ -64,7 +64,7 @@ class FurnitureController extends Controller
 
         if(auth()->user()->role == 'admin'){
             $furnitures = Furniture::find($furnitures);
-            return view('updateFurniture', compact('furnitures'))->with('notification', 'New Item has been Added!');;
+            return view('updateFurniture', compact('furnitures'))->with('notification', 'New Item has been Added!');
         }
     }
 
