@@ -69,13 +69,13 @@
             <p><b>Card Number</b></p>
         </div>
         <div class="col-md-4">
-            <input type="text" name="full_name" class="form-control @error('full_name') is-invalid @enderror" id="full_name" placeholder="Full Name" value="{{ old('full_name') }}">
+            <input type="text" name="full_name" class="form-control @error('full_name') is-invalid @enderror" id="full_name">
         </div>
     </div>
 
 
       <br><br>
-      <a href="/checkout"> <button type="button" class="btn btn-primary">Checkout</button></a>
+      <a href="/checkout"><button type="button" class="btn btn-primary">Checkout</button></a>
 </div>
 
 
