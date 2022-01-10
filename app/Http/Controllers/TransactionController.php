@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Furniture;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -70,13 +71,42 @@ class TransactionController extends Controller
 
     public function adminTransactionHistory(){
 
+
         $Transactions = Transaction::all();
+
+        if($Transactions == null){
+
+            return redirect('transactionHistory');
+        }
+        else{
+
+            $TransactionDetails = TransactionDetail::all();
+            $users = User::all();
+
+
+            return redirect('transactionHistory')
+            ->with('Transactions', $Transactions)
+            ->with('TransactionDetails', $TransactionDetails)
+            ->with('users', $users);
+        }
+
+
+    }
+
+    public function UserTransactionHistory(){
+
+        $userID = auth()->user()->id;
+
+        $Transactions = Transaction::where('users_id', $userID)->get();
 
         $TransactionDetails = TransactionDetail::all();
 
+        $furnitures = Furniture::all();
+
         return redirect('transactionHistory')
         ->with('Transactions', $Transactions)
-        ->with('TransactionDetails', $TransactionDetails);
+        ->with('TransactionDetails', $TransactionDetails)
+        ->with('furnitures', $furnitures);
     }
 
 }

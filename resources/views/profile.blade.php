@@ -59,7 +59,7 @@
         </div>
 
         <div class="col-md-auto">
-            <form action="">
+            <form action="/TransactionHistoryAdmin">
                 <button type="submit" class="btn btn-outline-secondary">View All User's Transaction</button>
             </form>
         </div>
