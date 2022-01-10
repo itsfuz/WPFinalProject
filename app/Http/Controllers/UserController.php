@@ -34,10 +34,9 @@ class UserController extends Controller
 
         $rules = [
 
-            'full_name' => 'required|unique|max:15',
+            'full_name' => 'required|unique:users|max:15',
             'password' => 'required|min:5|max:20',
-            'address' => 'required|min:5|max:95',
-            'gender'=> 'required'
+            'address' => 'required|min:5|max:95'
 
         ];
 
