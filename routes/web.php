@@ -53,3 +53,4 @@ Route::get('/checkOut/{id}', [TransactionController::class, 'GoToCheckOut']);
 Route::post('/getTransaction',[TransactionController::class, 'createTransaction']);
 Route::get('/TransactionHistoryAdmin', [TransactionController::class, 'adminTransactionHistory']);
 
+Route::get('/TransactionHistoryMember', [TransactionController::class, 'UserTransactionHistory']);

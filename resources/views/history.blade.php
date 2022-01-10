@@ -5,63 +5,193 @@
 <h1>Transaction History</h1>
 <div class="container" style="padding: 30px; text-align:center">
 
+    @if (auth()->user()->role == 'admin')
+    @foreach ($Transactions as $Transaction)
+    <div class="card">
+        <table class="table">
+            <br>
+                <thead>
+                    <div style="padding-left: 50px; text-align: left">
+                        <?php $TotalCost = 0 ?>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6><b>Transaction ID:</b></h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6> {{$Transaction->id}}</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6><b>Transaction Date:</b></h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>{{$Transaction->transaction_date}}</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6><b>Method:</b></h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>{{$Transaction->payment_method}}</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6><b>Card Number:</b></h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>{{$Transaction->card_number}}</h6>
+                            </div>
+                        </div>
 
-   <div class="card">
-    <table class="table">
-            <thead>
-            @foreach ($Transactions as $Transaction)
-                <?php $TotalCost = 0 ?>
-                <h6>Transaction id: {{$Transaction->id}}</h6>
-                <h6>Transaction Date:{{$Transaction->transaction_date}}</h6>
-                <h6>Method:{{$Transaction->payment_method}}</h6>
-                <h6>Crad Number:{{$Transaction->card_number}}</h6>
-                @foreach ($users as $user)
-                    @if ($Transaction->users_id == $user->id)
-                        <h6>User's Name: {{$user->full_name}}</h6>
-                    @endif
+                        @foreach ($users as $user)
+                            @if ($Transaction->users_id == $user->id)
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h6><b>User's Name:</b></h6>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>{{$user->full_name}}</h6>
+                                </div>
+                            </div>
+                            @endif
+                        @endforeach
+                    </div>
 
-                @endforeach
 
-                <tr>
-                    <th scope="col">Furniture's Name</th>
-                    <th scope="col">Furniture's Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total Price for Each Furniture</th>
-                </tr>
-            </thead>
-            <tbody>
+                    <tr>
+                        <th scope="col">Furniture's Name</th>
+                        <th scope="col">Furniture's Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total Price for Each Furniture</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                @foreach ($TransactionDetails as $TransactionDetail)
+                    @foreach ($TransactionDetails as $TransactionDetail)
 
-                    @if($Transaction->id == $TransactionDetail->transactions_id)
+                        @if($Transaction->id == $TransactionDetail->transactions_id)
 
+                            <tr>
+                                <th scope="row">{{$TransactionDetail->furniture_name}}</th>
+                                <td>Rp. {{$TransactionDetail->price}}</td>
+                                <td>{{$TransactionDetail->quantity}}</td>
+                                <td>Rp. {{$TransactionDetail->price*$TransactionDetail->quantity}}</td>
+                            </tr>
+
+                            <?php $TotalCost = $TotalCost + ($TransactionDetail->price*$TransactionDetail->quantity) ?>
+
+                        @endif
+
+
+                    @endforeach
+                    <br>
+                    <thead>
                         <tr>
-                            <th scope="row">{{$TransactionDetail->furniture_name}}</th>
-                            <td>{{$TransactionDetail->price}}</td>
-                            <td>{{$TransactionDetail->quantity}}</td>
-                            <td>{{$TransactionDetail->price*$TransactionDetail->quantity}}</td>
+                            <td></td>
+                            <td></td>
+                            <td><b>Total Price</b></td>
+                            <td><b>Rp. {{$TotalCost}}</b></td>
                         </tr>
-
-                        <?php $TotalCost = $TotalCost + ($TransactionDetail->price*$TransactionDetail->quantity) ?>
-
-                    @endif
-
-
-                @endforeach
-                <br>
-                <tr>
-                    <td colspan="2">Total Price</td>
-                    <td>{{$TotalCost}}</td>
-                </tr>
-
-            @endforeach
-        </tbody>
+                    </thead>
 
 
 
-      </table>
+            </tbody>
+          </table>
+       </div>
+       <br><br>
+       @endforeach
 
-   </div>
+    @elseif (auth()->user()->role == 'member')
+    @foreach ($Transactions as $Transaction)
+    <div class="card">
+        <table class="table">
+            <br>
+                <thead>
+                    <div style="padding-left: 50px; text-align: left">
+                        <?php $TotalCost = 0 ?>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6><b>Transaction ID:</b></h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6> {{$Transaction->id}}</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6><b>Transaction Date:</b></h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>{{$Transaction->transaction_date}}</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6><b>Method:</b></h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>{{$Transaction->payment_method}}</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6><b>Card Number:</b></h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>{{$Transaction->card_number}}</h6>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <tr>
+                        <th scope="col">Furniture's Name</th>
+                        <th scope="col">Furniture's Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total Price for Each Furniture</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach ($TransactionDetails as $TransactionDetail)
+
+                        @if($Transaction->id == $TransactionDetail->transactions_id)
+
+                            <tr>
+                                <th scope="row">{{$TransactionDetail->furniture_name}}</th>
+                                <td>Rp. {{$TransactionDetail->price}}</td>
+                                <td>{{$TransactionDetail->quantity}}</td>
+                                <td>Rp. {{$TransactionDetail->price*$TransactionDetail->quantity}}</td>
+                            </tr>
+
+                            <?php $TotalCost = $TotalCost + ($TransactionDetail->price*$TransactionDetail->quantity) ?>
+
+                        @endif
+
+
+                    @endforeach
+                    <br>
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><b>Total Price</b></td>
+                            <td><b>Rp. {{$TotalCost}}</b></td>
+                        </tr>
+                    </thead>
+
+
+
+            </tbody>
+          </table>
+       </div>
+       <br><br>
+       @endforeach
+    @endif
 
 </div>
 

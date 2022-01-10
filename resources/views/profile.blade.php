@@ -78,7 +78,7 @@
             </form>
         </div>
         <div class="col-md-auto">
-            <form action="">
+            <form action="/TransactionHistoryMember">
                 <button type="submit" class="btn btn-outline-secondary">View Transaction History</button>
             </form>
         </div>
