@@ -21,28 +21,28 @@ class FurnitureSeeder extends Seeder
                 'price' => 12000,
                 'type' => 'bed',
                 'color' => 'blue',
-                'image' => 'public/images/example1.jpg'
+                'image' => 'product-image/example1.jpg'
             ],
             [
                 'name' => 'Grimsbu',
                 'price' => 1000000,
                 'type' => 'bed',
                 'color' => 'white',
-                'image' => 'public/images/example2.jpg'
+                'image' => 'product-image/example2.jpg'
             ],
             [
                 'name' => 'Antlop',
                 'price' => 200000,
                 'type' => 'chair',
                 'color' => 'white',
-                'image' => 'public/images/example3.jpg'
+                'image' => 'product-image/example3.jpg'
             ],
             [
                 'name' => 'Mammut',
                 'price' => 85000,
                 'type' => 'chair',
                 'color' => 'white',
-                'image' => 'public/images/example4.jpg'
+                'image' => 'product-image/example4.jpg'
             ]
             ];
 
