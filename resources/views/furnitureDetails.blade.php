@@ -42,7 +42,7 @@
             <div class="row justify-content-center">
                 <div class="col-sm-2">
                     <form action="">
-                        <a href="/login"> <button type="button" class="btn btn-secondary">Previous</button></a>
+                        <a href=""> <button type="button" class="btn btn-secondary">Previous</button></a>
                     </form>
                 </div>
                 <div class="col-sm-2">
