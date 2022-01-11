@@ -71,7 +71,11 @@ class CartController extends Controller
 
         $SelectedItem = Cart::where('users_id', $user)->where('furniture_id', $id)->first();
 
+        $item = Furniture::find($id);
+
         $SelectedItem->quantity = $SelectedItem->quantity + 1;
+
+        $SelectedItem->total_price = $SelectedItem->total_price + $item->price;
 
         $SelectedItem->save();
 
