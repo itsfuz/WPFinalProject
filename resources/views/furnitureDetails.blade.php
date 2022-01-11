@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-{{-- connect by id from the view blade?? --}}
+
 
 <div class="container" style="padding:50px">
 
@@ -39,6 +39,7 @@
                     </form>
                 </div>
                 <div class="col-sm-2">
+
                     <form action="/addToCart/{{$f->id}}" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-primary">Add to Cart</button>
@@ -67,9 +68,14 @@
             @endif
             @else
             <div class="row justify-content-center">
-                <div class="column">
-                    <a href="/cart"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
+                <div class="col-sm-2">
+                    <form action="">
+                        <a href="/login"> <button type="button" class="btn btn-secondary">Previous</button></a>
+                    </form>
                 </div>
+                    <div class="col-sm-2">
+                        <a href="/login"> <button type="button" class="btn btn-primary" style="width:150px">Add to Cart</button></a>
+                    </div>
             </div>
             @endauth
         </div>
