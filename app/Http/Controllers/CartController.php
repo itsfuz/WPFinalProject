@@ -95,6 +95,9 @@ class CartController extends Controller
         }
         else{
             $SelectedItem->quantity = $SelectedItem->quantity - 1;
+            $item = Furniture::find($id);
+
+            $SelectedItem->total_price = $SelectedItem->total_price - $item->price;
             $SelectedItem->save();
         }
 
