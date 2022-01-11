@@ -32,7 +32,7 @@ class FurnitureController extends Controller
     public function addFurniture(Request $request){
 
         $rules = [
-            'name' => 'required|unique|max:15',
+            'name' => 'required|unique:furnitures|max:15',
             'price' => 'required|numeric|min:5000|max:10000000',
             'type' => 'required',
             'color' => 'required',
@@ -46,12 +46,12 @@ class FurnitureController extends Controller
 
         $file = $request->file('image');
         $imageName = time().'.'.$file->getClientOriginalExtension();
-        Storage::putFileAs('public/images',$file,$imageName);
+        Storage::putFileAs('public/product-image',$file,$imageName);
 
 
         $furnitures = Furniture::create(request(['name', 'price', 'type', 'color', 'image']));
 
-        $furnitures->image = 'images/'.$imageName;
+        $furnitures->image = 'product-image/'.$imageName;
 
         $furnitures->save();
 
@@ -89,14 +89,14 @@ class FurnitureController extends Controller
         $furnitures -> color = $request->color;
         $file = $request->file('image');
         $imageName = time().'.'.$file->getClientOriginalExtension();
-        Storage::putFileAs('public/images',$file,$imageName);
+        Storage::putFileAs('public/product-image',$file,$imageName);
         $furnitures -> type = $request->type;
 
         Storage::delete('public/'.$furnitures->image);
 
-        $request->image->move(public_path('images'), $imageName);
+        // $request->image->move(public_path('images'), $imageName);
 
-        $furnitures->image = 'images/'.$imageName;
+        $furnitures->image = 'product-image/'.$imageName;
 
         $furnitures->save();
 
