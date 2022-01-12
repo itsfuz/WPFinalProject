@@ -17,6 +17,6 @@ class HomeController extends Controller
 
     public function viewFurniture(){
         $furnitures = Furniture::all();
-        return view('home', compact('furnitures', $furnitures));
+        return view('home')->with('furnitures', $furnitures);
     }
 }
