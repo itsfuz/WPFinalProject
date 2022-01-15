@@ -76,7 +76,7 @@ class TransactionController extends Controller
             $ItemToRemove = Cart::where('users_id', $userID)->first();
         }
 
-        return redirect('/')->with('notification', 'Purchase Complete!');;
+        return redirect('/')->with('notification', 'Purchase Complete!');
 
     }
 
