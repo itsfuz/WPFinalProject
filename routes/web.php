@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\URL;
 
 Route::get('/', [HomeController::class, 'viewFurniture']);
 Route::get('/home', [HomeController::class, 'viewFurniture']);
-Route::get('/login', [HomeController::class, 'toLogin']);
+Route::get('login', [HomeController::class, 'toLogin']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/registerUser', [RegisterController::class, 'store']);
@@ -36,7 +36,8 @@ Route::get('/profile', [UserController::class, 'profilePage']);
 Route::get('/updateProfile', [UserController::class, 'updateProfilePage']);
 Route::post('/updateProfile', [UserController::class, 'updateProfile']);
 
-Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture']);
+Route::get('/viewFurniture', [FurnitureController::class, 'viewFurniture'])->middleware('auth');
+
 Route::get('/addFurniture', [FurnitureController::class, 'addFurniturePage']);
 Route::post('/addFurniture', [FurnitureController::class, 'addFurniture']);
 Route::get('/updateFurniture/{id}', [FurnitureController::class, 'updateFurniturePage']);

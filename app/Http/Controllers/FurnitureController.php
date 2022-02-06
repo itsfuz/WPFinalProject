@@ -15,7 +15,7 @@ class FurnitureController extends Controller
 
     public function addFurniturePage(){
 
-        $this->middleware('auth');
+
 
         if(auth()->user()->role == 'admin'){
 
@@ -24,6 +24,8 @@ class FurnitureController extends Controller
     }
 
     public function viewFurniture(){
+
+        $this->middleware('auth');
 
         $furnitures = Furniture::all();
         return view('view')->with('furnitures', $furnitures);

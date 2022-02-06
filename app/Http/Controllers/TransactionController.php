@@ -113,8 +113,6 @@ class TransactionController extends Controller
 
         $TransactionDetails = TransactionDetail::all();
 
-        $furnitures = Furniture::all();
-
         return view('history')
         ->with('Transactions', $Transactions)
         ->with('TransactionDetails', $TransactionDetails);

@@ -46,7 +46,7 @@
       </div>
       <br><br>
 
-      <a href="/checkOut/{{auth()->user()->id}}"> <button type="button" class="btn btn-primary">Proceed to Checkout</button></a>
+      <a href="/checkOut/{{auth()->user()->id}}"><button type="button" class="btn btn-primary">Proceed to Checkout</button></a>
 </div>
 
 
